@@ -1,0 +1,54 @@
+.highlight-dimmed {
+  opacity: 0.5 !important;
+  transition: opacity 0.2s ease-in-out !important;
+}
+
+.highlight-normal {
+  opacity: 1 !important;
+  transition: opacity 0.2s ease-in-out !important;
+}
+
+.highlight-normal * {
+  opacity: 1 !important;
+}
+
+.agent-icon-always-visible {
+  opacity: 1 !important;
+}
+
+.agent-icon-always-visible * {
+  opacity: 1 !important;
+}
+
+/* Highlight border overlay - positioned on the outer edge */
+.appmixer-highlight-overlay {
+  position: relative;
+}
+
+.appmixer-highlight-overlay::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 1px dashed red;
+  border-radius: 0px;
+  pointer-events: none;
+  transition: opacity 0.2s ease-in-out;
+}
+
+/* Highlight overlay for designer view (no padding) - needs z-index to appear above widget content */
+.appmixer-highlight-overlay-no-padding::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 1px dashed red;
+  border-radius: 0;
+  pointer-events: none;
+  z-index: 100;
+  transition: opacity 0.2s ease-in-out;
+}

@@ -1,0 +1,155 @@
+{
+    "name": "appmixer.yoursaas.utils.SearchTickets",
+    "author": "Petr Olivka <petr@appmixer.com>",
+    "description": "Searches for tickets in YourSaaS using various filters.",
+    "private": false,
+    "auth": {
+        "service": "appmixer:yoursaas"
+    },
+    "inPorts": [
+        {
+            "name": "in",
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "example": "login error"
+                    },
+                    "status": {
+                        "type": "string",
+                        "enum": [
+                            "new",
+                            "in-progress",
+                            "resolved",
+                            "closed"
+                        ],
+                        "example": "new"
+                    },
+                    "priority": {
+                        "type": "string",
+                        "enum": [
+                            "low",
+                            "medium",
+                            "high",
+                            "urgent"
+                        ],
+                        "example": "high"
+                    },
+                    "assignee": {
+                        "type": "string",
+                        "example": "Jane Smith"
+                    }
+                },
+                "required": []
+            },
+            "inspector": {
+                "inputs": {
+                    "query": {
+                        "type": "text",
+                        "group": "search",
+                        "label": "Search Query",
+                        "index": 1,
+                        "tooltip": "Search in ticket title and description"
+                    },
+                    "status": {
+                        "type": "select",
+                        "group": "filters",
+                        "label": "Status",
+                        "index": 2,
+                        "options": [
+                            {
+                                "label": "All",
+                                "value": ""
+                            },
+                            {
+                                "label": "New",
+                                "value": "new"
+                            },
+                            {
+                                "label": "In Progress",
+                                "value": "in-progress"
+                            },
+                            {
+                                "label": "Resolved",
+                                "value": "resolved"
+                            },
+                            {
+                                "label": "Closed",
+                                "value": "closed"
+                            }
+                        ]
+                    },
+                    "priority": {
+                        "type": "select",
+                        "group": "filters",
+                        "label": "Priority",
+                        "index": 3,
+                        "options": [
+                            {
+                                "label": "All",
+                                "value": ""
+                            },
+                            {
+                                "label": "Low",
+                                "value": "low"
+                            },
+                            {
+                                "label": "Medium",
+                                "value": "medium"
+                            },
+                            {
+                                "label": "High",
+                                "value": "high"
+                            },
+                            {
+                                "label": "Urgent",
+                                "value": "urgent"
+                            }
+                        ]
+                    },
+                    "assignee": {
+                        "type": "text",
+                        "group": "filters",
+                        "label": "Assignee",
+                        "index": 4
+                    }
+                },
+                "groups": {
+                    "search": {
+                        "label": "Search",
+                        "index": 1
+                    },
+                    "filters": {
+                        "label": "Filters",
+                        "index": 2
+                    }
+                }
+            }
+        }
+    ],
+    "outPorts": [
+        {
+            "name": "results",
+            "options": [
+                {
+                    "label": "tickets",
+                    "value": "tickets"
+                },
+                {
+                    "label": "count",
+                    "value": "count"
+                },
+                {
+                    "label": "query",
+                    "value": "query"
+                },
+                {
+                    "label": "filters",
+                    "value": "filters"
+                }
+            ]
+        }
+    ],
+    "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWNpcmNsZS1xdWVzdGlvbi1tYXJrLWljb24gbHVjaWRlLWNpcmNsZS1xdWVzdGlvbi1tYXJrIj48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMCIvPjxwYXRoIGQ9Ik05LjA5IDlhMyAzIDAgMCAxIDUuODMgMWMwIDItMyAzLTMgMyIvPjxwYXRoIGQ9Ik0xMiAxN2guMDEiLz48L3N2Zz4="
+}

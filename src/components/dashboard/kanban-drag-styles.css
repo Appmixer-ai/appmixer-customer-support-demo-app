@@ -1,0 +1,58 @@
+/* Custom drag and drop styles for Kanban board */
+
+/* Ensure draggable elements don't interfere with normal interactions */
+.ticket-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.ticket-card.dragging {
+  transform: rotate(2deg) scale(1.02);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  opacity: 0.95;
+}
+
+/* Drag handle specific styles */
+button[data-dnd-kit-draggable-handle="true"] {
+  cursor: grab !important;
+}
+
+button[data-dnd-kit-draggable-handle="true"]:active {
+  cursor: grabbing !important;
+}
+
+/* Override pointer cursor on drag handles */
+[data-dnd-kit-draggable-handle="true"] {
+  cursor: grab !important;
+  user-select: none;
+}
+
+[data-dnd-kit-draggable-handle="true"]:active {
+  cursor: grabbing !important;
+}
+
+/* Drop zone animations */
+.drop-zone {
+  transition: all 0.2s ease;
+}
+
+.drop-zone.active {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(147, 51, 234, 0.1) 100%);
+  border: 2px dashed rgba(59, 130, 246, 0.5);
+  border-radius: 0.5rem;
+}
+
+/* Empty column styling during drag */
+.empty-column {
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.empty-column.drag-active {
+  background: rgba(59, 130, 246, 0.05);
+  border: 2px dashed rgba(59, 130, 246, 0.3);
+}

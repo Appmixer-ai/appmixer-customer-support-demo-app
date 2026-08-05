@@ -1,0 +1,115 @@
+{
+    "name": "appmixer.yoursaas.comments.UpdateComment",
+    "author": "Petr Olivka <petr@appmixer.com>",
+    "description": "Updates an existing comment in YourSaaS.",
+    "private": false,
+    "auth": {
+        "service": "appmixer:yoursaas"
+    },
+    "inPorts": [
+        {
+            "name": "in",
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "ticketId": {
+                        "type": "string",
+                        "example": "ticket-001"
+                    },
+                    "commentId": {
+                        "type": "string",
+                        "example": "comment-001"
+                    },
+                    "content": {
+                        "type": "string",
+                        "example": "I have investigated the issue and found the root cause."
+                    },
+                    "isInternal": {
+                        "type": "boolean",
+                        "example": false
+                    }
+                },
+                "required": [
+                    "ticketId",
+                    "commentId",
+                    "content"
+                ]
+            },
+            "inspector": {
+                "inputs": {
+                    "ticketId": {
+                        "type": "text",
+                        "group": "comment",
+                        "label": "Ticket ID",
+                        "index": 1
+                    },
+                    "commentId": {
+                        "type": "text",
+                        "group": "comment",
+                        "label": "Comment ID",
+                        "index": 2
+                    },
+                    "content": {
+                        "type": "textarea",
+                        "group": "comment",
+                        "label": "Comment Content",
+                        "index": 3
+                    },
+                    "isInternal": {
+                        "type": "toggle",
+                        "group": "comment",
+                        "label": "Internal Comment",
+                        "index": 4,
+                        "tooltip": "Mark as internal comment (not visible to customer)"
+                    }
+                },
+                "groups": {
+                    "comment": {
+                        "label": "Comment Details",
+                        "index": 1
+                    }
+                }
+            }
+        }
+    ],
+    "outPorts": [
+        {
+            "name": "comment",
+            "options": [
+                {
+                    "label": "id",
+                    "value": "id"
+                },
+                {
+                    "label": "ticketId",
+                    "value": "ticketId"
+                },
+                {
+                    "label": "authorId",
+                    "value": "authorId"
+                },
+                {
+                    "label": "authorName",
+                    "value": "authorName"
+                },
+                {
+                    "label": "content",
+                    "value": "content"
+                },
+                {
+                    "label": "isInternal",
+                    "value": "isInternal"
+                },
+                {
+                    "label": "createdAt",
+                    "value": "createdAt"
+                },
+                {
+                    "label": "updatedAt",
+                    "value": "updatedAt"
+                }
+            ]
+        }
+    ],
+    "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWNpcmNsZS1xdWVzdGlvbi1tYXJrLWljb24gbHVjaWRlLWNpcmNsZS1xdWVzdGlvbi1tYXJrIj48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMCIvPjxwYXRoIGQ9Ik05LjA5IDlhMyAzIDAgMCAxIDUuODMgMWMwIDItMyAzLTMgMyIvPjxwYXRoIGQ9Ik0xMiAxN2guMDEiLz48L3N2Zz4="
+}

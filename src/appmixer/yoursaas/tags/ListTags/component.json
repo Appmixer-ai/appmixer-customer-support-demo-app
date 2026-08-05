@@ -1,0 +1,71 @@
+{
+    "name": "appmixer.yoursaas.tags.ListTags",
+    "author": "Petr Olivka <petr@appmixer.com>",
+    "description": "Retrieves all tags from YourSaaS with usage statistics.",
+    "private": false,
+    "auth": {
+        "service": "appmixer:yoursaas"
+    },
+    "inPorts": [
+        {
+            "name": "in",
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "popular": {
+                        "type": "boolean",
+                        "description": "Get only popular tags",
+                        "example": true
+                    },
+                    "limit": {
+                        "type": "number",
+                        "description": "Limit number of tags returned",
+                        "example": 10
+                    }
+                },
+                "required": []
+            },
+            "inspector": {
+                "inputs": {
+                    "popular": {
+                        "type": "toggle",
+                        "group": "options",
+                        "label": "Popular Tags Only",
+                        "index": 1,
+                        "defaultValue": false
+                    },
+                    "limit": {
+                        "type": "number",
+                        "group": "options",
+                        "label": "Limit",
+                        "index": 2,
+                        "defaultValue": 10,
+                        "tooltip": "Maximum number of tags to return"
+                    }
+                },
+                "groups": {
+                    "options": {
+                        "label": "Options",
+                        "index": 1
+                    }
+                }
+            }
+        }
+    ],
+    "outPorts": [
+        {
+            "name": "tags",
+            "options": [
+                {
+                    "label": "tags",
+                    "value": "tags"
+                },
+                {
+                    "label": "count",
+                    "value": "count"
+                }
+            ]
+        }
+    ],
+    "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWNpcmNsZS1xdWVzdGlvbi1tYXJrLWljb24gbHVjaWRlLWNpcmNsZS1xdWVzdGlvbi1tYXJrIj48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMCIvPjxwYXRoIGQ9Ik05LjA5IDlhMyAzIDAgMCAxIDUuODMgMWMwIDItMyAzLTMgMyIvPjxwYXRoIGQ9Ik0xMiAxN2guMDEiLz48L3N2Zz4="
+}

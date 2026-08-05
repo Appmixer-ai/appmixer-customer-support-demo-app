@@ -1,0 +1,79 @@
+{
+    "name": "appmixer.yoursaas.tickets.AddTagsToTicket",
+    "author": "Petr Olivka <petr@appmixer.com>",
+    "description": "Adds one or more tags to a specific ticket in YourSaaS.",
+    "private": false,
+    "auth": {
+        "service": "appmixer:yoursaas"
+    },
+    "inPorts": [
+        {
+            "name": "in",
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "ticketId": {
+                        "type": "string",
+                        "example": "ticket-001"
+                    },
+                    "tags": {
+                        "type": "string",
+                        "description": "Tags to add to the ticket",
+                        "example": "bug,frontend,urgent"
+                    }
+                },
+                "required": [
+                    "ticketId",
+                    "tags"
+                ]
+            },
+            "inspector": {
+                "inputs": {
+                    "ticketId": {
+                        "type": "text",
+                        "group": "ticket",
+                        "label": "Ticket ID",
+                        "index": 1
+                    },
+                    "tags": {
+                        "type": "text",
+                        "group": "ticket",
+                        "label": "Tags (comma-separated)",
+                        "index": 2,
+                        "placeholder": "e.g., bug,urgent,frontend"
+                    }
+                },
+                "groups": {
+                    "ticket": {
+                        "label": "Ticket & Tags",
+                        "index": 1
+                    }
+                }
+            }
+        }
+    ],
+    "outPorts": [
+        {
+            "name": "result",
+            "options": [
+                {
+                    "label": "ticketId",
+                    "value": "ticketId"
+                },
+                {
+                    "label": "tags",
+                    "value": "tags"
+                },
+                {
+                    "label": "addedTags",
+                    "value": "addedTags"
+                },
+                {
+                    "label": "success",
+                    "value": "success"
+                }
+            ]
+        }
+    ],
+    "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWNpcmNsZS1xdWVzdGlvbi1tYXJrLWljb24gbHVjaWRlLWNpcmNsZS1xdWVzdGlvbi1tYXJrIj48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMCIvPjxwYXRoIGQ9Ik05LjA5IDlhMyAzIDAgMCAxIDUuODMgMWMwIDItMyAzLTMgMyIvPjxwYXRoIGQ9Ik0xMiAxN2guMDEiLz48L3N2Zz4="
+}

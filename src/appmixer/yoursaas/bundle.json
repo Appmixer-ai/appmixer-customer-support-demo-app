@@ -1,0 +1,48 @@
+{
+    "name": "appmixer.yoursaas",
+    "version": "1.0.14",
+    "changelog": {
+        "1.0.1": [
+            "Initial version"
+        ],
+        "1.0.2": [
+            "Added support for tags"
+        ],
+        "1.0.3": [
+            "Refactoring and improvements. Commons library update."
+        ],
+        "1.0.4": [
+            "Fix for New* trigger components"
+        ],
+        "1.0.5": [
+            "Order update"
+        ],
+        "1.0.6": [
+            "Added RaiseError for tesing error handling in workflows"
+        ],
+        "1.0.7": [
+            "Added RaiseCancelError for tesing cancellation handling in workflows"
+        ],
+        "1.0.8": [
+            "Added ListTicketsAsMarkdown component"
+        ],
+        "1.0.9": [
+            "Added ListCustomers and adjusted GetCustomer to allow search by email"
+        ],
+        "1.0.10": [
+            "Updated auth screen"
+        ],
+        "1.0.11": [
+            "Fix for context.log across entire connector."
+        ],
+        "1.0.12": [
+            "Added moduje json files for all modules"
+        ],
+        "1.0.13": [
+            "Added examples to components"
+        ],
+        "1.0.14": [
+            "Reverted outPorts structural change from 1.0.13 that broke field-level bindings (kept inPorts examples)"
+        ]
+    }
+}

@@ -1,0 +1,85 @@
+{
+    "name": "appmixer.yoursaas.customers.GetCustomer",
+    "author": "Petr Olivka <petr@appmixer.com>",
+    "description": "Retrieves a specific customer from YourSaaS by ID or email address.",
+    "private": false,
+    "auth": {
+        "service": "appmixer:yoursaas"
+    },
+    "inPorts": [
+        {
+            "name": "in",
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "customerId": {
+                        "type": "string",
+                        "example": "customer-001"
+                    },
+                    "email": {
+                        "type": "string",
+                        "format": "email",
+                        "example": "john.doe@example.com"
+                    }
+                },
+                "required": []
+            },
+            "inspector": {
+                "inputs": {
+                    "customerId": {
+                        "type": "text",
+                        "group": "customer",
+                        "label": "Customer ID",
+                        "index": 1,
+                        "tooltip": "Search by customer ID (takes priority over email)"
+                    },
+                    "email": {
+                        "type": "email",
+                        "group": "customer",
+                        "label": "Email Address",
+                        "index": 2,
+                        "tooltip": "Search by email address (used if Customer ID is not provided)"
+                    }
+                },
+                "groups": {
+                    "customer": {
+                        "label": "Customer Search",
+                        "index": 1
+                    }
+                }
+            }
+        }
+    ],
+    "outPorts": [
+        {
+            "name": "customer",
+            "options": [
+                {
+                    "label": "id",
+                    "value": "id"
+                },
+                {
+                    "label": "name",
+                    "value": "name"
+                },
+                {
+                    "label": "email",
+                    "value": "email"
+                },
+                {
+                    "label": "avatar",
+                    "value": "avatar"
+                },
+                {
+                    "label": "createdAt",
+                    "value": "createdAt"
+                },
+                {
+                    "label": "updatedAt",
+                    "value": "updatedAt"
+                }
+            ]
+        }
+    ],
+    "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWNpcmNsZS1xdWVzdGlvbi1tYXJrLWljb24gbHVjaWRlLWNpcmNsZS1xdWVzdGlvbi1tYXJrIj48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMCIvPjxwYXRoIGQ9Ik05LjA5IDlhMyAzIDAgMCAxIDUuODMgMWMwIDItMyAzLTMgMyIvPjxwYXRoIGQ9Ik0xMiAxN2guMDEiLz48L3N2Zz4="
+}

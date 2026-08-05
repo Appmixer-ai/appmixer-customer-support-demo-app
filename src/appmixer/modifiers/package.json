@@ -1,0 +1,17 @@
+{
+    "name": "appmixer.yoursaas.modifiers",
+    "version": "1.0.0",
+    "private": true,
+    "description": "Config-as-code source for custom Appmixer modifiers (yoursaas_*).",
+    "scripts": {
+        "build": "node build.js",
+        "test": "node --test",
+        "deploy": "npm run build && node deploy.js"
+    },
+    "engines": {
+        "node": ">=18"
+    },
+    "devDependencies": {
+        "moment": "^2.30.1"
+    }
+}

@@ -1,0 +1,78 @@
+{
+    "name": "appmixer.yoursaas.tickets.RemoveTagFromTicket",
+    "author": "Petr Olivka <petr@appmixer.com>",
+    "description": "Removes a specific tag from a ticket in YourSaaS.",
+    "private": false,
+    "auth": {
+        "service": "appmixer:yoursaas"
+    },
+    "inPorts": [
+        {
+            "name": "in",
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "ticketId": {
+                        "type": "string",
+                        "example": "ticket-001"
+                    },
+                    "tagId": {
+                        "type": "string",
+                        "description": "Tag name/ID to remove",
+                        "example": "bug"
+                    }
+                },
+                "required": [
+                    "ticketId",
+                    "tagId"
+                ]
+            },
+            "inspector": {
+                "inputs": {
+                    "ticketId": {
+                        "type": "text",
+                        "group": "ticket",
+                        "label": "Ticket ID",
+                        "index": 1
+                    },
+                    "tagId": {
+                        "type": "text",
+                        "group": "ticket",
+                        "label": "Tag Name",
+                        "index": 2
+                    }
+                },
+                "groups": {
+                    "ticket": {
+                        "label": "Ticket & Tag",
+                        "index": 1
+                    }
+                }
+            }
+        }
+    ],
+    "outPorts": [
+        {
+            "name": "result",
+            "options": [
+                {
+                    "label": "ticketId",
+                    "value": "ticketId"
+                },
+                {
+                    "label": "removedTag",
+                    "value": "removedTag"
+                },
+                {
+                    "label": "remainingTags",
+                    "value": "remainingTags"
+                },
+                {
+                    "label": "success",
+                    "value": "success"
+                }
+            ]
+        }
+    ],
+    "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWNpcmNsZS1xdWVzdGlvbi1tYXJrLWljb24gbHVjaWRlLWNpcmNsZS1xdWVzdGlvbi1tYXJrIj48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMCIvPjxwYXRoIGQ9Ik05LjA5IDlhMyAzIDAgMCAxIDUuODMgMWMwIDItMyAzLTMgMyIvPjxwYXRoIGQ9Ik0xMiAxN2guMDEiLz48L3N2Zz4="
+}

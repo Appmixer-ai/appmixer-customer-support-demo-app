@@ -1,0 +1,59 @@
+{
+    "name": "appmixer.yoursaas.tickets.GetPopularTags",
+    "author": "Petr Olivka <petr@appmixer.com>",
+    "description": "Gets the most popular tags based on ticket usage in YourSaaS.",
+    "private": false,
+    "auth": {
+        "service": "appmixer:yoursaas"
+    },
+    "inPorts": [
+        {
+            "name": "in",
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "limit": {
+                        "type": "number",
+                        "description": "Maximum number of popular tags to return",
+                        "example": 10
+                    }
+                },
+                "required": []
+            },
+            "inspector": {
+                "inputs": {
+                    "limit": {
+                        "type": "number",
+                        "group": "options",
+                        "label": "Limit",
+                        "index": 1,
+                        "defaultValue": 10,
+                        "tooltip": "Maximum number of popular tags to return"
+                    }
+                },
+                "groups": {
+                    "options": {
+                        "label": "Options",
+                        "index": 1
+                    }
+                }
+            }
+        }
+    ],
+    "outPorts": [
+        {
+            "name": "tags",
+            "options": [
+                {
+                    "label": "popularTags",
+                    "value": "popularTags"
+                },
+                {
+                    "label": "total",
+                    "value": "total"
+                }
+            ]
+        }
+    ],
+    "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWNpcmNsZS1xdWVzdGlvbi1tYXJrLWljb24gbHVjaWRlLWNpcmNsZS1xdWVzdGlvbi1tYXJrIj48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMCIvPjxwYXRoIGQ9Ik05LjA5IDlhMyAzIDAgMCAxIDUuODMgMWMwIDItMyAzLTMgMyIvPjxwYXRoIGQ9Ik0xMiAxN2guMDEiLz48L3N2Zz4="
+}

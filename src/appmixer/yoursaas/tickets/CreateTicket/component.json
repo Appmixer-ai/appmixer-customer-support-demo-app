@@ -1,0 +1,189 @@
+{
+    "name": "appmixer.yoursaas.tickets.CreateTicket",
+    "author": "Petr Olivka <petr@appmixer.com>",
+    "description": "Creates a new ticket in YourSaaS.",
+    "private": false,
+    "auth": {
+        "service": "appmixer:yoursaas"
+    },
+    "inPorts": [
+        {
+            "name": "in",
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "title": {
+                        "type": "string",
+                        "example": "Login page not loading"
+                    },
+                    "description": {
+                        "type": "string",
+                        "example": "The login page returns a 500 error when accessing from mobile devices."
+                    },
+                    "priority": {
+                        "type": "string",
+                        "enum": [
+                            "low",
+                            "medium",
+                            "high",
+                            "urgent"
+                        ],
+                        "example": "high"
+                    },
+                    "customer_name": {
+                        "type": "string",
+                        "example": "John Doe"
+                    },
+                    "customer_email": {
+                        "type": "string",
+                        "example": "john.doe@example.com"
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Initial tags for the ticket",
+                        "example": [
+                            "bug",
+                            "frontend",
+                            "urgent"
+                        ]
+                    }
+                },
+                "required": [
+                    "title",
+                    "description",
+                    "customer_name",
+                    "customer_email"
+                ]
+            },
+            "inspector": {
+                "inputs": {
+                    "title": {
+                        "type": "text",
+                        "group": "ticket",
+                        "label": "Title",
+                        "index": 1
+                    },
+                    "description": {
+                        "type": "textarea",
+                        "group": "ticket",
+                        "label": "Description",
+                        "index": 2
+                    },
+                    "priority": {
+                        "type": "select",
+                        "group": "ticket",
+                        "label": "Priority",
+                        "index": 3,
+                        "options": [
+                            {
+                                "label": "Low",
+                                "value": "low"
+                            },
+                            {
+                                "label": "Medium",
+                                "value": "medium"
+                            },
+                            {
+                                "label": "High",
+                                "value": "high"
+                            },
+                            {
+                                "label": "Urgent",
+                                "value": "urgent"
+                            }
+                        ],
+                        "defaultValue": "medium"
+                    },
+                    "customer_name": {
+                        "type": "text",
+                        "group": "customer",
+                        "label": "Customer Name",
+                        "index": 4
+                    },
+                    "customer_email": {
+                        "type": "text",
+                        "group": "customer",
+                        "label": "Customer Email",
+                        "index": 5
+                    },
+                    "tags": {
+                        "type": "text",
+                        "group": "ticket",
+                        "label": "Tags (comma-separated)",
+                        "index": 6,
+                        "placeholder": "e.g., bug,urgent,frontend"
+                    }
+                },
+                "groups": {
+                    "ticket": {
+                        "label": "Ticket Details",
+                        "index": 1
+                    },
+                    "customer": {
+                        "label": "Customer Information",
+                        "index": 2
+                    }
+                }
+            }
+        }
+    ],
+    "outPorts": [
+        {
+            "name": "ticket",
+            "options": [
+                {
+                    "label": "id",
+                    "value": "id"
+                },
+                {
+                    "label": "title",
+                    "value": "title"
+                },
+                {
+                    "label": "description",
+                    "value": "description"
+                },
+                {
+                    "label": "priority",
+                    "value": "priority"
+                },
+                {
+                    "label": "status",
+                    "value": "status"
+                },
+                {
+                    "label": "customer.id",
+                    "value": "customer.id"
+                },
+                {
+                    "label": "customer.name",
+                    "value": "customer.name"
+                },
+                {
+                    "label": "customer.email",
+                    "value": "customer.email"
+                },
+                {
+                    "label": "assignee",
+                    "value": "assignee"
+                },
+                {
+                    "label": "createdAt",
+                    "value": "createdAt"
+                },
+                {
+                    "label": "updatedAt",
+                    "value": "updatedAt"
+                },
+                {
+                    "label": "tags",
+                    "value": "tags"
+                }
+            ]
+        }
+    ],
+    "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWNpcmNsZS1xdWVzdGlvbi1tYXJrLWljb24gbHVjaWRlLWNpcmNsZS1xdWVzdGlvbi1tYXJrIj48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMCIvPjxwYXRoIGQ9Ik05LjA5IDlhMyAzIDAgMCAxIDUuODMgMWMwIDItMyAzLTMgMyIvPjxwYXRoIGQ9Ik0xMiAxN2guMDEiLz48L3N2Zz4="
+}

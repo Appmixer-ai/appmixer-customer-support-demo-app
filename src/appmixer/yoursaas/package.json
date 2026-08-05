@@ -1,0 +1,7 @@
+{
+    "name": "appmixer.yoursaas",
+    "version": "1.0.14",
+    "dependencies": {
+        "@supabase/supabase-js": "^2.56.1"
+    }
+}

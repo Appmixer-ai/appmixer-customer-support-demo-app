@@ -1,0 +1,214 @@
+{
+    "name": "appmixer.yoursaas.tickets.UpdateTicket",
+    "author": "Petr Olivka <petr@appmixer.com>",
+    "description": "Updates an existing ticket in YourSaaS.",
+    "private": false,
+    "auth": {
+        "service": "appmixer:yoursaas"
+    },
+    "inPorts": [
+        {
+            "name": "in",
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "ticketId": {
+                        "type": "string",
+                        "example": "ticket-001"
+                    },
+                    "title": {
+                        "type": "string",
+                        "example": "Login page not loading"
+                    },
+                    "description": {
+                        "type": "string",
+                        "example": "The login page returns a 500 error when accessing from mobile devices."
+                    },
+                    "priority": {
+                        "type": "string",
+                        "enum": [
+                            "low",
+                            "medium",
+                            "high",
+                            "urgent"
+                        ],
+                        "example": "high"
+                    },
+                    "status": {
+                        "type": "string",
+                        "enum": [
+                            "new",
+                            "in-progress",
+                            "resolved",
+                            "closed"
+                        ],
+                        "example": "new"
+                    },
+                    "assignee": {
+                        "type": "string",
+                        "example": "Jane Smith"
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "example": [
+                            "bug",
+                            "frontend",
+                            "urgent"
+                        ]
+                    }
+                },
+                "required": [
+                    "ticketId"
+                ]
+            },
+            "inspector": {
+                "inputs": {
+                    "ticketId": {
+                        "type": "text",
+                        "group": "ticket",
+                        "label": "Ticket ID",
+                        "index": 1
+                    },
+                    "title": {
+                        "type": "text",
+                        "group": "ticket",
+                        "label": "Title",
+                        "index": 2
+                    },
+                    "description": {
+                        "type": "textarea",
+                        "group": "ticket",
+                        "label": "Description",
+                        "index": 3
+                    },
+                    "priority": {
+                        "type": "select",
+                        "group": "ticket",
+                        "label": "Priority",
+                        "index": 4,
+                        "options": [
+                            {
+                                "label": "Low",
+                                "value": "low"
+                            },
+                            {
+                                "label": "Medium",
+                                "value": "medium"
+                            },
+                            {
+                                "label": "High",
+                                "value": "high"
+                            },
+                            {
+                                "label": "Urgent",
+                                "value": "urgent"
+                            }
+                        ]
+                    },
+                    "status": {
+                        "type": "select",
+                        "group": "ticket",
+                        "label": "Status",
+                        "index": 5,
+                        "options": [
+                            {
+                                "label": "New",
+                                "value": "new"
+                            },
+                            {
+                                "label": "In Progress",
+                                "value": "in-progress"
+                            },
+                            {
+                                "label": "Resolved",
+                                "value": "resolved"
+                            },
+                            {
+                                "label": "Closed",
+                                "value": "closed"
+                            }
+                        ]
+                    },
+                    "assignee": {
+                        "type": "text",
+                        "group": "ticket",
+                        "label": "Assignee",
+                        "index": 6
+                    },
+                    "tags": {
+                        "type": "textarea",
+                        "group": "ticket",
+                        "label": "Tags (comma-separated)",
+                        "index": 7,
+                        "tooltip": "Enter tags separated by commas"
+                    }
+                },
+                "groups": {
+                    "ticket": {
+                        "label": "Ticket Details",
+                        "index": 1
+                    }
+                }
+            }
+        }
+    ],
+    "outPorts": [
+        {
+            "name": "ticket",
+            "options": [
+                {
+                    "label": "id",
+                    "value": "id"
+                },
+                {
+                    "label": "title",
+                    "value": "title"
+                },
+                {
+                    "label": "description",
+                    "value": "description"
+                },
+                {
+                    "label": "priority",
+                    "value": "priority"
+                },
+                {
+                    "label": "status",
+                    "value": "status"
+                },
+                {
+                    "label": "customer.id",
+                    "value": "customer.id"
+                },
+                {
+                    "label": "customer.name",
+                    "value": "customer.name"
+                },
+                {
+                    "label": "customer.email",
+                    "value": "customer.email"
+                },
+                {
+                    "label": "assignee",
+                    "value": "assignee"
+                },
+                {
+                    "label": "createdAt",
+                    "value": "createdAt"
+                },
+                {
+                    "label": "updatedAt",
+                    "value": "updatedAt"
+                },
+                {
+                    "label": "tags",
+                    "value": "tags"
+                }
+            ]
+        }
+    ],
+    "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWNpcmNsZS1xdWVzdGlvbi1tYXJrLWljb24gbHVjaWRlLWNpcmNsZS1xdWVzdGlvbi1tYXJrIj48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMCIvPjxwYXRoIGQ9Ik05LjA5IDlhMyAzIDAgMCAxIDUuODMgMWMwIDItMyAzLTMgMyIvPjxwYXRoIGQ9Ik0xMiAxN2guMDEiLz48L3N2Zz4="
+}

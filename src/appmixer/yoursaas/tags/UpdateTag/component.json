@@ -1,0 +1,114 @@
+{
+    "name": "appmixer.yoursaas.tags.UpdateTag",
+    "author": "Petr Olivka <petr@appmixer.com>",
+    "description": "Updates an existing tag in YourSaaS.",
+    "private": false,
+    "auth": {
+        "service": "appmixer:yoursaas"
+    },
+    "inPorts": [
+        {
+            "name": "in",
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "tagId": {
+                        "type": "string",
+                        "example": "bug"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "New tag name (optional)",
+                        "example": "critical-bug"
+                    },
+                    "color": {
+                        "type": "string",
+                        "description": "Hex color code (optional)",
+                        "example": "#FF5733"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "Tag description (optional)",
+                        "example": "Issues related to critical software bugs"
+                    }
+                },
+                "required": [
+                    "tagId"
+                ]
+            },
+            "inspector": {
+                "inputs": {
+                    "tagId": {
+                        "type": "text",
+                        "group": "tag",
+                        "label": "Tag ID/Name",
+                        "index": 1
+                    },
+                    "name": {
+                        "type": "text",
+                        "group": "tag",
+                        "label": "New Name",
+                        "index": 2,
+                        "tooltip": "Leave empty to keep current name"
+                    },
+                    "color": {
+                        "type": "color",
+                        "group": "tag",
+                        "label": "Color",
+                        "index": 3,
+                        "tooltip": "Leave empty to keep current color"
+                    },
+                    "description": {
+                        "type": "textarea",
+                        "group": "tag",
+                        "label": "Description",
+                        "index": 4,
+                        "tooltip": "Leave empty to keep current description"
+                    }
+                },
+                "groups": {
+                    "tag": {
+                        "label": "Tag Details",
+                        "index": 1
+                    }
+                }
+            }
+        }
+    ],
+    "outPorts": [
+        {
+            "name": "tag",
+            "options": [
+                {
+                    "label": "id",
+                    "value": "id"
+                },
+                {
+                    "label": "name",
+                    "value": "name"
+                },
+                {
+                    "label": "color",
+                    "value": "color"
+                },
+                {
+                    "label": "description",
+                    "value": "description"
+                },
+                {
+                    "label": "usageCount",
+                    "value": "usageCount"
+                },
+                {
+                    "label": "createdAt",
+                    "value": "createdAt"
+                },
+                {
+                    "label": "updatedAt",
+                    "value": "updatedAt"
+                }
+            ]
+        }
+    ],
+    "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWNpcmNsZS1xdWVzdGlvbi1tYXJrLWljb24gbHVjaWRlLWNpcmNsZS1xdWVzdGlvbi1tYXJrIj48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMCIvPjxwYXRoIGQ9Ik05LjA5IDlhMyAzIDAgMCAxIDUuODMgMWMwIDItMyAzLTMgMyIvPjxwYXRoIGQ9Ik0xMiAxN2guMDEiLz48L3N2Zz4="
+}

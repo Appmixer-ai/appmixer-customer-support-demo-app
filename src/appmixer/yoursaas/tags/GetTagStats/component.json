@@ -1,0 +1,158 @@
+{
+    "name": "appmixer.yoursaas.tags.GetTagStats",
+    "author": "Petr Olivka <petr@appmixer.com>",
+    "description": "Gets comprehensive tag statistics and analytics from YourSaaS.",
+    "private": false,
+    "auth": {
+        "service": "appmixer:yoursaas"
+    },
+    "inPorts": [
+        {
+            "name": "in",
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "action": {
+                        "type": "string",
+                        "enum": [
+                            "stats",
+                            "trends"
+                        ],
+                        "description": "Type of analysis to perform",
+                        "example": "stats"
+                    },
+                    "period": {
+                        "type": "string",
+                        "enum": [
+                            "7d",
+                            "30d",
+                            "90d",
+                            "1y"
+                        ],
+                        "description": "Time period for trends analysis",
+                        "example": "30d"
+                    },
+                    "limit": {
+                        "type": "number",
+                        "description": "Limit number of items in results",
+                        "example": 10
+                    }
+                },
+                "required": []
+            },
+            "inspector": {
+                "inputs": {
+                    "action": {
+                        "type": "select",
+                        "group": "analysis",
+                        "label": "Analysis Type",
+                        "index": 1,
+                        "options": [
+                            {
+                                "label": "General Statistics",
+                                "value": "stats"
+                            },
+                            {
+                                "label": "Usage Trends",
+                                "value": "trends"
+                            }
+                        ],
+                        "defaultValue": "stats"
+                    },
+                    "period": {
+                        "type": "select",
+                        "group": "analysis",
+                        "label": "Time Period",
+                        "index": 2,
+                        "options": [
+                            {
+                                "label": "7 Days",
+                                "value": "7d"
+                            },
+                            {
+                                "label": "30 Days",
+                                "value": "30d"
+                            },
+                            {
+                                "label": "90 Days",
+                                "value": "90d"
+                            },
+                            {
+                                "label": "1 Year",
+                                "value": "1y"
+                            }
+                        ],
+                        "defaultValue": "30d",
+                        "tooltip": "Only applies to trends analysis"
+                    },
+                    "limit": {
+                        "type": "number",
+                        "group": "analysis",
+                        "label": "Limit",
+                        "index": 3,
+                        "defaultValue": 10
+                    }
+                },
+                "groups": {
+                    "analysis": {
+                        "label": "Analysis Options",
+                        "index": 1
+                    }
+                }
+            }
+        }
+    ],
+    "outPorts": [
+        {
+            "name": "stats",
+            "options": [
+                {
+                    "label": "overview",
+                    "value": "overview"
+                },
+                {
+                    "label": "distribution",
+                    "value": "distribution"
+                },
+                {
+                    "label": "mostUsed",
+                    "value": "mostUsed"
+                },
+                {
+                    "label": "leastUsed",
+                    "value": "leastUsed"
+                },
+                {
+                    "label": "byStatus",
+                    "value": "byStatus"
+                },
+                {
+                    "label": "byPriority",
+                    "value": "byPriority"
+                }
+            ]
+        },
+        {
+            "name": "trends",
+            "options": [
+                {
+                    "label": "period",
+                    "value": "period"
+                },
+                {
+                    "label": "dateRange",
+                    "value": "dateRange"
+                },
+                {
+                    "label": "trends",
+                    "value": "trends"
+                },
+                {
+                    "label": "summary",
+                    "value": "summary"
+                }
+            ]
+        }
+    ],
+    "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWNpcmNsZS1xdWVzdGlvbi1tYXJrLWljb24gbHVjaWRlLWNpcmNsZS1xdWVzdGlvbi1tYXJrIj48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMCIvPjxwYXRoIGQ9Ik05LjA5IDlhMyAzIDAgMCAxIDUuODMgMWMwIDItMyAzLTMgMyIvPjxwYXRoIGQ9Ik0xMiAxN2guMDEiLz48L3N2Zz4="
+}

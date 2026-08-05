@@ -1,0 +1,55 @@
+{
+    "name": "appmixer.yoursaas.utils.GetTicketStats",
+    "author": "Petr Olivka <petr@appmixer.com>",
+    "description": "Retrieves ticket statistics from YourSaaS.",
+    "private": false,
+    "auth": {
+        "service": "appmixer:yoursaas"
+    },
+    "inPorts": [
+        {
+            "name": "in",
+            "schema": {
+                "type": "object",
+                "properties": {},
+                "required": []
+            },
+            "inspector": {
+                "inputs": {},
+                "groups": {}
+            }
+        }
+    ],
+    "outPorts": [
+        {
+            "name": "stats",
+            "options": [
+                {
+                    "label": "totalTickets",
+                    "value": "totalTickets"
+                },
+                {
+                    "label": "newTickets",
+                    "value": "newTickets"
+                },
+                {
+                    "label": "inProgressTickets",
+                    "value": "inProgressTickets"
+                },
+                {
+                    "label": "resolvedTickets",
+                    "value": "resolvedTickets"
+                },
+                {
+                    "label": "avgResponseTime",
+                    "value": "avgResponseTime"
+                },
+                {
+                    "label": "customerSatisfaction",
+                    "value": "customerSatisfaction"
+                }
+            ]
+        }
+    ],
+    "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWNpcmNsZS1xdWVzdGlvbi1tYXJrLWljb24gbHVjaWRlLWNpcmNsZS1xdWVzdGlvbi1tYXJrIj48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMCIvPjxwYXRoIGQ9Ik05LjA5IDlhMyAzIDAgMCAxIDUuODMgMWMwIDItMyAzLTMgMyIvPjxwYXRoIGQ9Ik0xMiAxN2guMDEiLz48L3N2Zz4="
+}

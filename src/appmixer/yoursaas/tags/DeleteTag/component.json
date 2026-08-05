@@ -1,0 +1,62 @@
+{
+    "name": "appmixer.yoursaas.tags.DeleteTag",
+    "author": "Petr Olivka <petr@appmixer.com>",
+    "description": "Deletes a tag from YourSaaS and removes it from all tickets.",
+    "private": false,
+    "auth": {
+        "service": "appmixer:yoursaas"
+    },
+    "inPorts": [
+        {
+            "name": "in",
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "tagId": {
+                        "type": "string",
+                        "example": "bug"
+                    }
+                },
+                "required": [
+                    "tagId"
+                ]
+            },
+            "inspector": {
+                "inputs": {
+                    "tagId": {
+                        "type": "text",
+                        "group": "tag",
+                        "label": "Tag ID/Name",
+                        "index": 1
+                    }
+                },
+                "groups": {
+                    "tag": {
+                        "label": "Tag Details",
+                        "index": 1
+                    }
+                }
+            }
+        }
+    ],
+    "outPorts": [
+        {
+            "name": "result",
+            "options": [
+                {
+                    "label": "tagId",
+                    "value": "tagId"
+                },
+                {
+                    "label": "deleted",
+                    "value": "deleted"
+                },
+                {
+                    "label": "deletedAt",
+                    "value": "deletedAt"
+                }
+            ]
+        }
+    ],
+    "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWNpcmNsZS1xdWVzdGlvbi1tYXJrLWljb24gbHVjaWRlLWNpcmNsZS1xdWVzdGlvbi1tYXJrIj48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMCIvPjxwYXRoIGQ9Ik05LjA5IDlhMyAzIDAgMCAxIDUuODMgMWMwIDItMyAzLTMgMyIvPjxwYXRoIGQ9Ik0xMiAxN2guMDEiLz48L3N2Zz4="
+}

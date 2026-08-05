@@ -1,0 +1,134 @@
+{
+    "name": "appmixer.yoursaas.tickets.ListTicketsAsMarkdown",
+    "author": "Petr Olivka <petr@appmixer.com>",
+    "description": "Retrieves all tickets from YourSaaS with comments formatted as Markdown for LLM processing.",
+    "private": false,
+    "auth": {
+        "service": "appmixer:yoursaas"
+    },
+    "inPorts": [
+        {
+            "name": "in",
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "enum": [
+                            "new",
+                            "in-progress",
+                            "resolved",
+                            "closed"
+                        ],
+                        "example": "new"
+                    },
+                    "priority": {
+                        "type": "string",
+                        "enum": [
+                            "low",
+                            "medium",
+                            "high",
+                            "urgent"
+                        ],
+                        "example": "high"
+                    },
+                    "tags": {
+                        "type": "string",
+                        "description": "Filter by tags (comma-separated)",
+                        "example": "bug,frontend,urgent"
+                    }
+                },
+                "required": []
+            },
+            "inspector": {
+                "inputs": {
+                    "status": {
+                        "type": "select",
+                        "group": "filters",
+                        "label": "Status Filter",
+                        "index": 1,
+                        "options": [
+                            {
+                                "label": "All",
+                                "value": ""
+                            },
+                            {
+                                "label": "New",
+                                "value": "new"
+                            },
+                            {
+                                "label": "In Progress",
+                                "value": "in-progress"
+                            },
+                            {
+                                "label": "Resolved",
+                                "value": "resolved"
+                            },
+                            {
+                                "label": "Closed",
+                                "value": "closed"
+                            }
+                        ]
+                    },
+                    "priority": {
+                        "type": "select",
+                        "group": "filters",
+                        "label": "Priority Filter",
+                        "index": 2,
+                        "options": [
+                            {
+                                "label": "All",
+                                "value": ""
+                            },
+                            {
+                                "label": "Low",
+                                "value": "low"
+                            },
+                            {
+                                "label": "Medium",
+                                "value": "medium"
+                            },
+                            {
+                                "label": "High",
+                                "value": "high"
+                            },
+                            {
+                                "label": "Urgent",
+                                "value": "urgent"
+                            }
+                        ]
+                    },
+                    "tags": {
+                        "type": "text",
+                        "group": "filters",
+                        "label": "Tag Filter",
+                        "index": 3,
+                        "placeholder": "e.g., bug,urgent,frontend"
+                    }
+                },
+                "groups": {
+                    "filters": {
+                        "label": "Filters",
+                        "index": 1
+                    }
+                }
+            }
+        }
+    ],
+    "outPorts": [
+        {
+            "name": "markdown",
+            "options": [
+                {
+                    "label": "markdown",
+                    "value": "markdown"
+                },
+                {
+                    "label": "ticketCount",
+                    "value": "ticketCount"
+                }
+            ]
+        }
+    ],
+    "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWNpcmNsZS1xdWVzdGlvbi1tYXJrLWljb24gbHVjaWRlLWNpcmNsZS1xdWVzdGlvbi1tYXJrIj48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMCIvPjxwYXRoIGQ9Ik05LjA5IDlhMyAzIDAgMCAxIDUuODMgMWMwIDItMyAzLTMgMyIvPjxwYXRoIGQ9Ik0xMiAxN2guMDEiLz48L3N2Zz4="
+}

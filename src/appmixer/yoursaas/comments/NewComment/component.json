@@ -1,0 +1,92 @@
+{
+    "name": "appmixer.yoursaas.comments.NewComment",
+    "author": "Petr Olivka <petr@appmixer.com>",
+    "description": "Triggers when a new comment is added to any ticket in YourSaaS.",
+    "private": false,
+    "auth": {
+        "service": "appmixer:yoursaas"
+    },
+    "tick": true,
+    "outPorts": [
+        {
+            "name": "comment",
+            "options": [
+                {
+                    "label": "id",
+                    "value": "id"
+                },
+                {
+                    "label": "ticketId",
+                    "value": "ticketId"
+                },
+                {
+                    "label": "authorId",
+                    "value": "authorId"
+                },
+                {
+                    "label": "authorName",
+                    "value": "authorName"
+                },
+                {
+                    "label": "content",
+                    "value": "content"
+                },
+                {
+                    "label": "isInternal",
+                    "value": "isInternal"
+                },
+                {
+                    "label": "createdAt",
+                    "value": "createdAt"
+                },
+                {
+                    "label": "updatedAt",
+                    "value": "updatedAt"
+                },
+                {
+                    "label": "ticket.id",
+                    "value": "ticket.id"
+                },
+                {
+                    "label": "ticket.title",
+                    "value": "ticket.title"
+                },
+                {
+                    "label": "ticket.status",
+                    "value": "ticket.status"
+                }
+            ]
+        }
+    ],
+    "properties": {
+        "schema": {
+            "properties": {
+                "pollInterval": {
+                    "type": "number",
+                    "default": 300,
+                    "example": 300
+                }
+            },
+            "required": []
+        },
+        "inspector": {
+            "inputs": {
+                "pollInterval": {
+                    "type": "number",
+                    "group": "config",
+                    "label": "Poll Interval (seconds)",
+                    "index": 1,
+                    "tooltip": "How often to check for new comments (in seconds).",
+                    "default": 300
+                }
+            },
+            "groups": {
+                "config": {
+                    "label": "Configuration",
+                    "index": 1
+                }
+            }
+        }
+    },
+    "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWNpcmNsZS1xdWVzdGlvbi1tYXJrLWljb24gbHVjaWRlLWNpcmNsZS1xdWVzdGlvbi1tYXJrIj48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMCIvPjxwYXRoIGQ9Ik05LjA5IDlhMyAzIDAgMCAxIDUuODMgMWMwIDItMyAzLTMgMyIvPjxwYXRoIGQ9Ik0xMiAxN2guMDEiLz48L3N2Zz4="
+}

@@ -1,0 +1,40 @@
+{
+    "name": "appmixer.yoursaas.utils.RaiseCancelError",
+    "author": "Petr Olivka <petr@appmixer.com>",
+    "description": "Throws a cancel error to gracefully stop flow execution for testing cancellation handling.",
+    "private": false,
+    "auth": {
+        "service": "appmixer:yoursaas"
+    },
+    "inPorts": [
+        {
+            "name": "in",
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "errorMessage": {
+                        "type": "string",
+                        "example": "Something went wrong"
+                    }
+                },
+                "required": []
+            },
+            "inspector": {
+                "inputs": {
+                    "errorMessage": {
+                        "type": "text",
+                        "label": "Cancel Message",
+                        "index": 1,
+                        "tooltip": "Custom cancel message (optional)",
+                        "defaultValue": "Flow execution cancelled for testing"
+                    }
+                },
+                "groups": {
+                    "errorMessage": "Cancel Configuration"
+                }
+            }
+        }
+    ],
+    "outPorts": [],
+    "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWJhbiI+PGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMTAiLz48cGF0aCBkPSJtNC45IDE5LjFsMTQuMi0xNC4yIi8+PC9zdmc+"
+}

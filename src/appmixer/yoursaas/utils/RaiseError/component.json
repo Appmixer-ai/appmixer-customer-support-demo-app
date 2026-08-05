@@ -1,0 +1,40 @@
+{
+    "name": "appmixer.yoursaas.utils.RaiseError",
+    "author": "Petr Olivka <petr@appmixer.com>",
+    "description": "Throws an error to simulate a faulty flow for testing error handling.",
+    "private": false,
+    "auth": {
+        "service": "appmixer:yoursaas"
+    },
+    "inPorts": [
+        {
+            "name": "in",
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "errorMessage": {
+                        "type": "string",
+                        "example": "Something went wrong"
+                    }
+                },
+                "required": []
+            },
+            "inspector": {
+                "inputs": {
+                    "errorMessage": {
+                        "type": "text",
+                        "label": "Error Message",
+                        "index": 1,
+                        "tooltip": "Custom error message to throw (optional)",
+                        "defaultValue": "Simulated error for testing"
+                    }
+                },
+                "groups": {
+                    "errorMessage": "Error Configuration"
+                }
+            }
+        }
+    ],
+    "outPorts": [],
+    "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWNpcmNsZS14Ij48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMCIvPjxwYXRoIGQ9Im0xNSA5bC02IDYiLz48cGF0aCBkPSJtOSA5bDYgNiIvPjwvc3ZnPg=="
+}

@@ -1,0 +1,98 @@
+{
+    "name": "appmixer.yoursaas.utils.GetTicketsByTags",
+    "author": "Petr Olivka <petr@appmixer.com>",
+    "description": "Advanced search for tickets by tags with flexible matching options.",
+    "private": false,
+    "auth": {
+        "service": "appmixer:yoursaas"
+    },
+    "inPorts": [
+        {
+            "name": "in",
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "tags": {
+                        "type": "string",
+                        "description": "Tags to search for",
+                        "example": "bug,frontend,urgent"
+                    },
+                    "matchMode": {
+                        "type": "string",
+                        "enum": [
+                            "any",
+                            "all"
+                        ],
+                        "description": "Match any tag or all tags",
+                        "example": "any"
+                    }
+                },
+                "required": [
+                    "tags"
+                ]
+            },
+            "inspector": {
+                "inputs": {
+                    "tags": {
+                        "type": "text",
+                        "group": "search",
+                        "label": "Tags (comma-separated)",
+                        "index": 1,
+                        "placeholder": "e.g., bug,urgent,frontend"
+                    },
+                    "matchMode": {
+                        "type": "select",
+                        "group": "search",
+                        "label": "Match Mode",
+                        "index": 2,
+                        "options": [
+                            {
+                                "label": "Any Tag (OR)",
+                                "value": "any"
+                            },
+                            {
+                                "label": "All Tags (AND)",
+                                "value": "all"
+                            }
+                        ],
+                        "defaultValue": "any"
+                    }
+                },
+                "groups": {
+                    "search": {
+                        "label": "Search Parameters",
+                        "index": 1
+                    }
+                }
+            }
+        }
+    ],
+    "outPorts": [
+        {
+            "name": "results",
+            "options": [
+                {
+                    "label": "tickets",
+                    "value": "tickets"
+                },
+                {
+                    "label": "totalCount",
+                    "value": "totalCount"
+                },
+                {
+                    "label": "searchTags",
+                    "value": "searchTags"
+                },
+                {
+                    "label": "matchMode",
+                    "value": "matchMode"
+                },
+                {
+                    "label": "tagGroups",
+                    "value": "tagGroups"
+                }
+            ]
+        }
+    ],
+    "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWNpcmNsZS1xdWVzdGlvbi1tYXJrLWljb24gbHVjaWRlLWNpcmNsZS1xdWVzdGlvbi1tYXJrIj48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMCIvPjxwYXRoIGQ9Ik05LjA5IDlhMyAzIDAgMCAxIDUuODMgMWMwIDItMyAzLTMgMyIvPjxwYXRoIGQ9Ik0xMiAxN2guMDEiLz48L3N2Zz4="
+}

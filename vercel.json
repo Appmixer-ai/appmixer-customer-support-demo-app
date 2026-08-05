@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/tickets/:ticket_id/comments",
+      "destination": "/api/comments?ticket_id=$ticket_id"
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+    "name": "appmixer.yoursaas.utils.GetCustomerTickets",
+    "author": "Petr Olivka <petr@appmixer.com>",
+    "description": "Retrieves all tickets for a specific customer from YourSaaS.",
+    "private": false,
+    "auth": {
+        "service": "appmixer:yoursaas"
+    },
+    "inPorts": [
+        {
+            "name": "in",
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "customerId": {
+                        "type": "string",
+                        "example": "customer-001"
+                    }
+                },
+                "required": [
+                    "customerId"
+                ]
+            },
+            "inspector": {
+                "inputs": {
+                    "customerId": {
+                        "type": "text",
+                        "group": "customer",
+                        "label": "Customer ID",
+                        "index": 1
+                    }
+                },
+                "groups": {
+                    "customer": {
+                        "label": "Customer Details",
+                        "index": 1
+                    }
+                }
+            }
+        }
+    ],
+    "outPorts": [
+        {
+            "name": "tickets",
+            "options": [
+                {
+                    "label": "tickets",
+                    "value": "tickets"
+                },
+                {
+                    "label": "count",
+                    "value": "count"
+                },
+                {
+                    "label": "customerId",
+                    "value": "customerId"
+                }
+            ]
+        }
+    ],
+    "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWNpcmNsZS1xdWVzdGlvbi1tYXJrLWljb24gbHVjaWRlLWNpcmNsZS1xdWVzdGlvbi1tYXJrIj48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMCIvPjxwYXRoIGQ9Ik05LjA5IDlhMyAzIDAgMCAxIDUuODMgMWMwIDItMyAzLTMgMyIvPjxwYXRoIGQ9Ik0xMiAxN2guMDEiLz48L3N2Zz4="
+}

@@ -1,0 +1,1999 @@
+{
+    "modifiers": {
+        "categories": {
+            "object": "Object",
+            "list": "List",
+            "text": "Text",
+            "control": "Control",
+            "number": "Number",
+            "date": "Date"
+        },
+        "modifiers": {
+            "g_add": {
+                "label": "Add",
+                "description": "Add two numbers.",
+                "tooltip": "Add two numbers. Use the <code>second</code> parameter to define what will be added with the variable value.",
+                "arguments": {
+                    "second": "second"
+                }
+            },
+            "g_concatenate": {
+                "label": "Concatenate",
+                "description": "Concatenate two strings.",
+                "tooltip": "Concatenate two strings. Use the <code>second</code> parameter to define what will be concatenated with the variable value.",
+                "arguments": {
+                    "second": "second"
+                }
+            },
+            "g_addTimeSpan": {
+                "label": "Add Time",
+                "description": "Add time span to a date.",
+                "tooltip": "Add time span to a date.",
+                "arguments": {
+                    "years": "Years",
+                    "months": "Months",
+                    "weeks": "Weeks",
+                    "days": "Days",
+                    "hours": "Hours",
+                    "minutes": "Minutes"
+                }
+            },
+            "g_avg": {
+                "label": "Avg",
+                "description": "Find the average (arithmetic mean) of given number(s).",
+                "tooltip": "Find the average (arithmetic mean) of given number(s)."
+            },
+            "g_ceil": {
+                "label": "Ceil",
+                "description": "Round to the smallest integer greater than or equal to a given number.",
+                "tooltip": "Round to the smallest integer greater than or equal to a given number."
+            },
+            "g_condition": {
+                "label": "Condition",
+                "description": "Conditional statement. If EXPRESSION evaluates to true, TRUE VALUE branch will be the resulting value. Otherwise, FALSE VALUE will be used.",
+                "tooltip": "Conditional statement. If the value of the variable evaluates to true, the <code>true value</code> branch will become the resulting value. Otherwise, the <code>false value</code> will be used.",
+                "arguments": {
+                    "trueValue": "true value",
+                    "falseValue": "false value"
+                }
+            },
+            "g_div": {
+                "label": "Div",
+                "description": "Divide two numbers.",
+                "tooltip": "Divide two numbers. Use the <code>second</code> parameter to define the divider.",
+                "arguments": {
+                    "second": "second"
+                }
+            },
+            "g_each": {
+                "label": "Each",
+                "description": "Loop over all values of a list or an object.",
+                "tooltip": "Loop over all values of a list or an object. For example, given a list <code>[\"John\", \"Mary\"]</code>, we can output a string that will contain each name on a separate line by adding the \"@value\" (using the variable picker, i.e. \"+\" button) variable to the <code>iteration</code>, and an empty line character (just press enter after the \"@value\" variable in the <code>iteration</code> field.",
+                "arguments": {
+                    "iteration": "iteration"
+                }
+            },
+            "g_filterList": {
+                "label": "Filter",
+                "description": "Iterates over items in the list and returns a new list with values that pass the predicate.",
+                "tooltip": "Loop over items in the list and return a new list with values that pass the predicate (i.e. the <code>value</code> parameter must evaluate to true).",
+                "arguments": {
+                    "value": "value"
+                }
+            },
+            "g_equals": {
+                "label": "Equals",
+                "description": "Test equality of two values. Resulting value is true if FIRST EXPRESSION equals SECOND EXPRESSION.",
+                "tooltip": "Test equality of two values. Resulting value is true if the variable equals <code>second expression</code>.",
+                "arguments": {
+                    "secondExpression": "second expression"
+                }
+            },
+            "g_first": {
+                "label": "First Item",
+                "description": "Find the first item of a list.",
+                "tooltip": "Get the first item of a list."
+            },
+            "g_floor": {
+                "label": "Floor",
+                "description": "Round to the largest integer less than or equal to a given number.",
+                "tooltip": "Round to the largest integer less than or equal to a given number."
+            },
+            "g_greaterThan": {
+                "label": "Greater than",
+                "description": "Test if the first value is greater than the second value.",
+                "tooltip": "Test if the variable is higher than the value provided in the <code>second</code> parameter. Set <code>inclusive</code> if you want to test for equality too.",
+                "arguments": {
+                    "second": "second",
+                    "inclusive": "inclusive"
+                }
+            },
+            "g_greaterThanDate": {
+                "label": "Greater than",
+                "description": "Test if the first date is greater than the second date.",
+                "tooltip": "Test if the date in the variable is after the date in the <code>second</code> parameter. Set <code>inclusive</code> if you want to test for equality too.",
+                "arguments": {
+                    "second": "second",
+                    "inclusive": "inclusive"
+                }
+            },
+            "g_pick": {
+                "label": "Pick",
+                "description": "Transforms the list by picking nested object values.",
+                "tooltip": "Transforms the list by picking nested object values. Use <code>JSON Path</code> (dot notation) to refer to nested values of the objects in the list. For example, given the list <code>[{ \"age\": 30 }, { \"age\": 50 }]</code> and using <code>age</code> as our JSON Path, the resulting list would become <code>[30, 50]</code>.",
+                "arguments": {
+                    "JSON Path": "JSON Path"
+                }
+            },
+            "g_map": {
+                "label": "Map",
+                "description": "Create a new array by transforming items of the original array.",
+                "tooltip": "Create a new array by transforming items of the original array. <code>predicate</code> is the function that will be applied to each item in the original array. This function can be, again, defined using (possibly nested) modifiers. Typically, you would add the \"@value\" variable using the variables picker next to the <code>predicate</code> field (\"+\" button) and apply other modifiers on the variable by clicking on the \"@value\" variable inside the <code>predicate</code> field. For example, given the list <code>[{ \"percent\": 30 }, { \"percent\": 50 }]</code>, you can convert this to a list that looks like <code>[0.3, 0.5]</code> by adding the \"@value\" variable to the <code>predicate</code> field and applying the following modifiers to it in order: \"JSON Path\" (<code>percent</code>) and \"Div\" (<code>100</code>).",
+                "arguments": {
+                    "predicate": "predicate"
+                }
+            },
+            "g_join": {
+                "label": "Join",
+                "description": "Join items into a text.",
+                "tooltip": "Create a new string by joining list of strings using a <code>separator</code>.",
+                "arguments": {
+                    "separator": "separator"
+                }
+            },
+            "g_jsonPath": {
+                "label": "JSON Path",
+                "description": "Access nested properties of the VALUE object using dot notation.",
+                "tooltip": "Access nested properties of the variable object using JSON Path (dot notation). For example, if your variable is an object of the form <code>{ \"invoice\": { \"amount\": 50 } }</code>, you can access the nested <code>amount</code> property by using the following path: <code>invoice.amount</code>.",
+                "arguments": {
+                    "path": "path"
+                }
+            },
+            "g_last": {
+                "label": "Last Item",
+                "description": "Find the last item of a list.",
+                "tooltip": "Get the last item of a list."
+            },
+            "g_nthIndex": {
+                "label": "Nth Index",
+                "description": "Find the nth item of a list.",
+                "tooltip": "Get the item of a list under the <code>index</code> specified.",
+                "arguments": {
+                    "index": "index"
+                }
+            },
+            "g_initial": {
+                "label": "Initial",
+                "description": "Gets the first element(s) of an array.",
+                "tooltip": "Gets the first <code>number</code> of elements of a list. If no number is specified, it returns a list containing only the first item from the original list.",
+                "arguments": {
+                    "number": "number"
+                }
+            },
+            "g_tail": {
+                "label": "Tail",
+                "description": "Gets all but the first element(s) of array.",
+                "tooltip": "Gets all but the first element of a list. If <code>skip</code> number is defined, it skips the defined number of items from the list (i.e. default is <code>1</code>).",
+                "arguments": {
+                    "skip": "skip"
+                }
+            },
+            "g_reverse": {
+                "label": "Reverse",
+                "description": "Reverses array so that the first element becomes the last, the second element becomes the second to last, and so on.",
+                "tooltip": "Reverses an array so that the first element becomes the last, the second element becomes the second to last, and so on."
+            },
+            "g_flatten": {
+                "label": "Flatten",
+                "description": "Flattens array a single level deep or recursively.",
+                "tooltip": "Flattens an array a single level deep or recursively (if <code>deep</code> is set). For example, an array <code>[1, [2, [3, [4]], 5]]</code> is converted to <code>[1, 2, [3, [4]], 5]</code>.",
+                "arguments": {
+                    "deep": "deep"
+                }
+            },
+            "g_sum": {
+                "label": "Sum",
+                "description": "Calculates the sum of the values in an array.",
+                "tooltip": "Calculates the sum of the values in an array."
+            },
+            "g_maxList": {
+                "label": "Max",
+                "description": "Finds the maximum number in an array of numbers.",
+                "tooltip": "Finds the maximum number in an array of numbers."
+            },
+            "g_minList": {
+                "label": "Min",
+                "description": "Finds the minimum number in an array of numbers.",
+                "tooltip": "Finds the minimum number in an array of numbers."
+            },
+            "g_avgList": {
+                "label": "Mean",
+                "description": "Calculates the average of numbers in an array of numbers.",
+                "tooltip": "Calculates the average of numbers in an array of numbers."
+            },
+            "g_length": {
+                "label": "Length",
+                "description": "Find length of text or list.",
+                "tooltip": "Get the length of text or list."
+            },
+            "g_lessThan": {
+                "label": "Less than",
+                "description": "Test if the first value is less than the second value.",
+                "tooltip": "Test if the variable is lower than the value provided in the <code>second</code> parameter. Set <code>inclusive</code> if you want to test for equality too.",
+                "arguments": {
+                    "second": "second",
+                    "inclusive": "inclusive"
+                }
+            },
+            "g_formatDate": {
+                "label": "Format Date",
+                "description": "Format a date/time string using a string of tokens.",
+                "tooltip": "Format a date/time string using a string of tokens. For example <code>dddd, MMMM Do YYYY, h:mm:ss a</code> returns <code>Sunday, February 14th 2010, 3:25:50 pm</code>.",
+                "arguments": {
+                    "format": "format"
+                }
+            },
+            "g_relativeTime": {
+                "label": "Relative Time",
+                "description": "Format a relative date/time.",
+                "tooltip": "Format a relative date/time. Example result <code>2 hours ago</code>. Set <code>without suffix</code> to return only <code>2 hours</code>.",
+                "arguments": {
+                    "without suffix": "without suffix"
+                }
+            },
+            "g_lessThanDate": {
+                "label": "Less than",
+                "description": "Test if the first date is less than the second date.",
+                "tooltip": "Test if the date in the variable is before the date in the <code>second</code> parameter. Set <code>inclusive</code> if you want to test for equality too.",
+                "arguments": {
+                    "second": "second",
+                    "inclusive": "inclusive"
+                }
+            },
+            "g_lowercase": {
+                "label": "Lowercase",
+                "description": "Transform text to lower case.",
+                "tooltip": "Transform text to lower case."
+            },
+            "g_max": {
+                "label": "Max",
+                "description": "Find maximum of given numbers.",
+                "tooltip": "Find the maximum number in a list of numbers."
+            },
+            "g_min": {
+                "label": "Min",
+                "description": "Find minimum of given numbers.",
+                "tooltip": "Find the minimum number in a list of numbers."
+            },
+            "g_mod": {
+                "label": "Mod",
+                "description": "Calculate the remainder after division of one number by another.",
+                "tooltip": "Calculate the remainder after division of one number by another defined in the <code>second</code> parameter.",
+                "arguments": {
+                    "second": "second"
+                }
+            },
+            "g_mul": {
+                "label": "Mul",
+                "description": "Multiply two numbers.",
+                "tooltip": "Multiply two numbers. Use the <code>second</code> parameter to define the multiplier.",
+                "arguments": {
+                    "second": "second"
+                }
+            },
+            "g_not": {
+                "label": "Not",
+                "description": "Invert value. True value becomes false and vice versa.",
+                "tooltip": "Invert value. True value becomes false and vice versa."
+            },
+            "g_md5": {
+                "label": "MD5",
+                "description": "Gets an MD5 hash of the text.",
+                "tooltip": "Gets an MD5 hash of a text."
+            },
+            "g_extractEmail": {
+                "label": "Extract Email Addresses",
+                "description": "Returns a list of email addresses found in the text.",
+                "tooltip": "Returns a list of email addresses found in the text."
+            },
+            "g_extractUrls": {
+                "label": "Extract URLs",
+                "description": "Returns a list of URLs found in the text.",
+                "tooltip": "Returns a list of URLs found in the text."
+            },
+            "g_encodeUrl": {
+                "label": "Encode URL",
+                "description": "Encode URL or a URL component.",
+                "tooltip": "Encode URL or a URL component by replacing each instance of certain characters by one, two, three, or four escape sequences representing the UTF-8 encoding of the character. For example, <code>test?</code> becomes <code>test%3F</code>.",
+                "arguments": {
+                    "ignore protocol prefix and domain": "ignore protocol prefix and domain"
+                }
+            },
+            "g_decodeUrl": {
+                "label": "Decode URL",
+                "description": "Decode URL or a URL component.",
+                "tooltip": "Decode URL or a URL component. For example, <code>test%3F</code> becomes <code>test?</code>.",
+                "arguments": {
+                    "ignore protocol prefix and domain": "ignore protocol prefix and domain"
+                }
+            },
+            "g_regex": {
+                "label": "Regex",
+                "description": "Find matches using regular expression.",
+                "tooltip": "Find matches using a regular expression. For example, given an HTML page as a string, we can extract the page title by using the following <code>pattern</code>: <code>&lt;title[^&gt;]*&gt;(.*?)&lt;/title&gt;</code>.",
+                "arguments": {
+                    "pattern": "pattern",
+                    "global": "global",
+                    "multiline": "multiline",
+                    "ignorecase": "ignorecase"
+                }
+            },
+            "g_trim": {
+                "label": "Trim",
+                "description": "Removes leading and trailing whitespace or specified characters from string.",
+                "tooltip": "Removes leading and trailing whitespace or specified characters from string.",
+                "arguments": {
+                    "chars": "chars"
+                }
+            },
+            "g_trimStart": {
+                "label": "Trim Start",
+                "description": "Removes leading whitespace or specified characters from string.",
+                "tooltip": "Removes leading whitespace or specified characters from string.",
+                "arguments": {
+                    "chars": "chars"
+                }
+            },
+            "g_trimEnd": {
+                "label": "Trim End",
+                "description": "Removes trailing whitespace or specified characters from string.",
+                "tooltip": "Removes trailing whitespace or specified characters from string.",
+                "arguments": {
+                    "chars": "chars"
+                }
+            },
+            "g_truncate": {
+                "label": "Truncate",
+                "description": "Truncates text if it's longer than the given maximum text length. The last characters of the truncated text are replaced with the omission string which defaults to \"...\".",
+                "tooltip": "Truncates text if it's longer than the given maximum text <code>length</code>. The last characters of the truncated text are replaced with the <code>omission</code> string which defaults to <code>\"...\"</code>.",
+                "arguments": {
+                    "length": "length",
+                    "omission": "omission"
+                }
+            },
+            "g_escapeHtml": {
+                "label": "Escape HTML",
+                "description": "Converts the characters \"&\", \"<\", \">\", '\"', and \"'\" in text to their corresponding HTML entities.",
+                "tooltip": "Converts the characters \"&\", \"<\", \">\", '\"', and \"'\" in text to their corresponding HTML entities."
+            },
+            "g_splitWords": {
+                "label": "Extract Words",
+                "description": "Splits text into a list of its words.",
+                "tooltip": "Splits text into a list of its words."
+            },
+            "g_splitByWhitespace": {
+                "label": "Split By Whitespace",
+                "description": "Split text into a list of words by chunks of whitespace.",
+                "tooltip": "Splits text into a list of words by chunks of whitespace."
+            },
+            "g_replace": {
+                "label": "Replace",
+                "description": "Replace parts of text using regular expressions or text patterns.",
+                "tooltip": "Replace parts of text using regular expressions or text patterns.",
+                "arguments": {
+                    "pattern": "pattern",
+                    "replacer": "replacer",
+                    "regex": "regex",
+                    "global": "global",
+                    "multiline": "multiline",
+                    "ignorecase": "ignorecase"
+                }
+            },
+            "g_split": {
+                "label": "Split",
+                "description": "Split text by delimiter.",
+                "tooltip": "Split text by delimiter.",
+                "arguments": {
+                    "delimiter": "delimiter"
+                }
+            },
+            "g_pad": {
+                "label": "Padding",
+                "description": "Pads text on the left and right sides if it's shorter than a specified length.",
+                "tooltip": "Pads text on the left and right sides if it's shorter than a specified length.",
+                "arguments": {
+                    "length": "length",
+                    "side": "side",
+                    "chars": "chars"
+                }
+            },
+            "g_stringify": {
+                "label": "Stringify",
+                "description": "Convert an object or list to a JSON string.",
+                "tooltip": "Convert an object or list to a JSON string. Optionally define the number of space characters to be used as indentation (<code>space</code> parameter), clamped to 10. If this is a string, the string is inserted before every nested object or array.",
+                "arguments": {
+                    "space": "space"
+                }
+            },
+            "g_sub": {
+                "label": "Sub",
+                "description": "Substract two numbers.",
+                "tooltip": "Subtract two numbers. Use the <code>second</code> parameter to define what will be subtracted.",
+                "arguments": {
+                    "second": "second"
+                }
+            },
+            "g_uppercase": {
+                "label": "Uppercase",
+                "description": "Transform text to upper case.",
+                "tooltip": "Transform text to upper case."
+            },
+            "g_kebabCase": {
+                "label": "Kebab Case",
+                "description": "Converts text to kebab case. (Example: \"Foo Bar\" -> \"foo-bar\")",
+                "tooltip": "Converts text to kebab case. Example: \"Foo Bar\" becomes \"foo-bar\"."
+            },
+            "g_camelCase": {
+                "label": "Camel Case",
+                "description": "Converts text to camel case. (Example: \"Foo Bar\" -> \"fooBar\")",
+                "tooltip": "Converts text to camel case. Example: \"Foo Bar\" becomes \"fooBar\"."
+            },
+            "g_sha1": {
+                "label": "SHA1",
+                "description": "Hash a string using SHA1 algorithm.",
+                "tooltip": "Hash a string using the SHA1 algorithm."
+            },
+            "g_sha256": {
+                "label": "SHA256",
+                "description": "Hash a string using SHA256 algorithm.",
+                "tooltip": "Hash a string using the SHA256 algorithm."
+            },
+            "g_sha512": {
+                "label": "SHA512",
+                "description": "Hash a string using SHA512 algorithm.",
+                "tooltip": "Hash a string using the SHA512 algorithm."
+            },
+            "g_base64": {
+                "label": "Base64",
+                "description": "Generate base64 string.",
+                "tooltip": "Generate a Base64 representation of a string."
+            },
+            "g_shuffle": {
+                "label": "Shuffle",
+                "description": "Shuffle values of an array.",
+                "tooltip": "Shuffle values of an array."
+            },
+            "g_deduplicate": {
+                "label": "Deduplicate",
+                "description": "Filter unique values or objects in an array if property name is provided.",
+                "tooltip": "Filter out duplicate values of an array. If the items of the array are objects, you can filter by specifying the <code>property</code>.",
+                "arguments": {
+                    "Property name (optional)": "Property name (optional)"
+                }
+            },
+            "g_snakeCase": {
+                "label": "Snake Case",
+                "description": "Converts text to snake case. (Example: \"Foo Bar\" -> \"foo_bar\")",
+                "tooltip": "Converts text to snake case. Example: \"Foo Bar\" becomes \"foo_bar\"."
+            },
+            "g_lowerFirst": {
+                "label": "Lower First",
+                "description": "Converts the first character of text to lower case.",
+                "tooltip": "Converts the first character of text to lower case."
+            },
+            "g_upperFirst": {
+                "label": "Upper First",
+                "description": "Converts the first character of text to upper case.",
+                "tooltip": "Converts the first character of text to upper case."
+            },
+            "g_javascript": {
+                "label": "JavaScript Function",
+                "description": "Run JavaScript code to transform a variable.",
+                "tooltip": "Run JavaScript code to transform a variable. Use <code>$variable</code> to reference the variable in your code. For example, to multiply a number by 5, type <code>$variable * 5</code> to the <code>code</code> parameter. The <code>code</code> parameter supports multiple forms of the JavaScript code. All of the following will be evaluated correctly: <code>return $variable * 5</code>, <code>function($variable) { return $variable * 5; }</code>.",
+                "arguments": {
+                    "code": "code"
+                }
+            }
+        }
+    },
+    "components": {
+        "rawOutput": "Raw Output"
+    },
+    "commons": {
+        "optional": "Optional",
+        "properties": "Properties",
+        "dataTypes": {
+            "any": "Unknown Type",
+            "number": "Number",
+            "integer": "Integer",
+            "boolean": "Boolean",
+            "string": "String",
+            "stringDateTime": "Date/Time",
+            "stringFileId": "File ID",
+            "array": "Array",
+            "arrayString": "Array of Strings",
+            "arrayNumber": "Array of Numbers",
+            "arrayInteger": "Array of Integers",
+            "arrayBoolean": "Array of Booleans",
+            "arrayStringDateTime": "Array of Date/Times",
+            "object": "Object"
+        },
+        "flowTypes": {
+            "automation": "Automation",
+            "integrationTemplate": "Integration Template",
+            "integrationDraft": "Integration",
+            "integrationTest": "Integration Test",
+            "integrationInstance": "Integration Instance"
+        },
+        "charts": {
+            "defaultChartName": "New chart",
+            "defaultTraceLabel": "Trace {{nth}}",
+            "errors": {
+                "manifestsLoad": "Loading manifests failed.",
+                "chartLoad": "Loading chart failed.",
+                "dataLoad": "Loading data failed.",
+                "chartCreate": "Creating new chart failed.",
+                "chartUpdate": "Updating chart failed.",
+                "queryStringParse": "Query string is invalid."
+            },
+            "aggregations": {
+                "sum": "Sum",
+                "min": "Min",
+                "max": "Max",
+                "avg": "Average",
+                "cardinality": "Unique Count"
+            },
+            "intervals": {
+                "auto": "Automatic",
+                "minute": "Minute",
+                "hour": "Hour",
+                "day": "Day",
+                "week": "Week",
+                "month": "Month",
+                "quarter": "Quarter",
+                "year": "Year"
+            }
+        },
+        "time": {
+            "absolute": {
+                "singular": {
+                    "second": "Second",
+                    "minute": "Minute",
+                    "hour": "Hour",
+                    "day": "Day",
+                    "week": "Week",
+                    "month": "Month",
+                    "year": "Year",
+                    "quarter": "Quarter",
+                    "isoWeek": "ISO Week"
+                },
+                "plural": {
+                    "second": "Seconds",
+                    "minute": "Minutes",
+                    "hour": "Hours",
+                    "day": "Days",
+                    "week": "Weeks",
+                    "month": "Months",
+                    "year": "Years",
+                    "quarter": "Quarters",
+                    "isoWeek": "ISO Weeks"
+                }
+            },
+            "relative": {
+                "now": "Now",
+                "before": "Before",
+                "startOf": "Start of",
+                "endOf": "End of",
+                "today": "Today",
+                "thisWeek": "This week",
+                "thisMonth": "This month",
+                "thisYear": "This year",
+                "yesterday": "Yesterday",
+                "dayBeforeYesterday": "Day before yesterday",
+                "thisDayLastWeek": "This day last week",
+                "previousWeek": "Previous week",
+                "previousMonth": "Previous month",
+                "previousYear": "Previous year",
+                "lastSeconds": "Last 1 second|Last {{count}} seconds",
+                "lastMinutes": "Last 1 minute|Last {{count}} minutes",
+                "lastHours": "Last 1 hour|Last {{count}} hours",
+                "lastDays": "Last 1 day|Last {{count}} days",
+                "lastWeeks": "Last 1 week|Last {{count}} weeks",
+                "lastMonths": "Last 1 month|Last {{count}} months",
+                "lastYears": "Last 1 year|Last {{count}} years"
+            }
+        }
+    },
+    "time": {
+        "months": [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December"
+        ],
+        "monthsShort": [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec"
+        ],
+        "weekdaysShort": [
+            "Sun",
+            "Mon",
+            "Tue",
+            "Wed",
+            "Thu",
+            "Fri",
+            "Sat"
+        ],
+        "relativeTime": {
+            "future": "in %s",
+            "past": "%s ago",
+            "s": "few seconds",
+            "ss": "%d seconds",
+            "m": "a minute",
+            "mm": "%d minutes",
+            "h": "an hour",
+            "hh": "%d hours",
+            "d": "a day",
+            "dd": "%d days",
+            "M": "a month",
+            "MM": "%d month",
+            "y": "a year",
+            "yy": "%d years"
+        },
+        "week": {
+            "dow": 0
+        }
+    },
+    "ui": {
+        "files": {
+            "title": "Files",
+            "buttonRemoveAll": "Delete All",
+            "buttonUploadFile": "Upload File",
+            "searchPlaceholder": "Search …",
+            "pagination": "{{range}} of {{total}}",
+            "buttonDeleteFile": "Delete",
+            "buttonDownloadFile": "Download",
+            "tooltips": {
+                "fileArchived": "Archived"
+            },
+            "errors": {
+                "filesLoad": "Loading files failed.",
+                "countLoad": "Loading count failed.",
+                "fileUpload": "Uploading file failed.",
+                "fileDownload": "Downloading file failed.",
+                "fileRemove": "Removing file failed.",
+                "filesRemove": "Deleting files failed.",
+                "originFlowLoad": "Loading flow failed.",
+                "originFlowNotFound": "Flow not found."
+            },
+            "alertNoResults": {
+                "searchTitle": "No files found for \"{{keywords}}\".",
+                "searchSubtitle": "Please try again using different keywords.",
+                "searchButtonClear": "Clear Search"
+            },
+            "labels": {
+                "name": "Name",
+                "uploadedAt": "Uploaded",
+                "origin": "Flow",
+                "size": "Size",
+                "sortBy": "Sort By"
+            }
+        },
+        "connectors": {
+            "title": "Connectors",
+            "searchPlaceholder": "Search …",
+            "labelTriggers": "Triggers",
+            "labelActions": "Actions",
+            "labelInPorts": "Inbound Ports",
+            "labelOutPorts": "Outbound Ports",
+            "errors": {
+                "componentsLoad": "Loading components failed.",
+                "appsLoad": "Loading apps failed."
+            },
+            "alertNoResults": {
+                "searchTitle": "No results found for \"{{keywords}}\".",
+                "searchSubtitle": "Please try again using different keywords.",
+                "searchButtonClear": "Clear Search"
+            }
+        },
+        "peopleTasks": {
+            "title": "People Tasks",
+            "searchPlaceholder": "Search …",
+            "pagination": "{{range}} of {{total}}",
+            "buttonRoleApprover": "Approver",
+            "buttonRoleRequester": "Requester",
+            "errors": {
+                "tasksLoad": "Loading components failed.",
+                "tasksCountLoad": "Loading apps failed.",
+                "approveTask": "Approving task failed.",
+                "rejectTask": "Rejecting task failed."
+            },
+            "alertNoResults": {
+                "searchTitle": "No tasks found for \"{{keywords}}\".",
+                "searchSubtitle": "Please try again using different keywords.",
+                "searchButtonClear": "Clear Search",
+                "filterTitle": "No tasks found."
+            },
+            "labels": {
+                "status": "Status",
+                "task": "Task",
+                "approver": "Approver",
+                "requester": "Requester",
+                "createdAt": "Created",
+                "dueAt": "Due",
+                "resolvedAt": "Resolved"
+            },
+            "task": {
+                "statusPending": "Pending",
+                "statusRejected": "Rejected",
+                "statusApproved": "Approved",
+                "statusOverdue": "Overdue",
+                "buttonApprove": "Approve",
+                "buttonReject": "Reject"
+            }
+        },
+        "integrations": {
+            "title": "Integrations",
+            "searchPlaceholder": "Search …",
+            "pagination": "{{range}} of {{total}}",
+            "labelTemplates": "All Integrations ({{count}})",
+            "labelInstances": "Activated Integrations ({{count}})",
+            "buttonRemove": "Remove",
+            "buttonStart": "Start",
+            "buttonStop": "Stop",
+            "buttonEdit": "Edit",
+            "errors": {
+                "manifestsLoad": "Loading manifests failed.",
+                "userLoad": "Loading user failed.",
+                "integrationsLoad": "Loading integrations failed.",
+                "integrationsLoadCount": "Error al cargar el recuento de integraciones.",
+                "instanceRemove": "Removing instance failed.",
+                "instanceStart": "Starting instance failed.",
+                "instanceStop": "Stopping instance failed."
+            }
+        },
+        "wizard": {
+            "errors": {
+                "automationLoad": "Loading failed because the flow is not an integration.",
+                "instanceLoad": "Loading integration failed.",
+                "instanceDelete": "Deleting integration failed.",
+                "instanceStart": "Starting integration failed.",
+                "instanceStop": "Stopping integration failed."
+            },
+            "buttonStart": "Start Integration",
+            "buttonStop": "Stop Integration",
+            "buttonDelete": "Delete Integration",
+            "buttonClose": "Close",
+            "dialogDelete": {
+                "message": "Are you sure you want to delete your integration?",
+                "buttonDeleteSubmit": "Yes",
+                "buttonDeleteCancel": "No"
+            }
+        },
+        "designer": {
+            "exception": {
+                "title": "Loading failed due to unexpected errors.",
+                "description": "See the error messages below for details.",
+                "buttonReload": "Reload"
+            },
+            "alerts": {
+                "copiedToClipboard": "Copied to clipboard.",
+                "cannotCopyEmpty": "Unable to copy: no data available.",
+                "cannotCopyInvalidFormat": "Unable to copy: data format is invalid.",
+                "pastedFromClipboard": "Pasted from clipboard.",
+                "cannotPasteDisabled": "Unable to paste: the flow is not editable.",
+                "cannotPasteInvalidUser": "Unable to paste: different user context.",
+                "cannotPasteInvalidFormat": "Unable to paste: data format is invalid.",
+                "cannotPasteError": "Unable to paste: an unexpected error occurred.",
+                "propertiesValidationError": "One or more properties validation errors occurred in component {{componentId}}",
+                "transformValidationError": "One or more validation errors occurred"
+            },
+            "errors": {
+                "manifestsLoad": "Loading manifests failed.",
+                "flowRename": "Renaming flow failed.",
+                "flowStart": "Starting flow failed.",
+                "flowStop": "Stopping flow failed.",
+                "flowUpdate": "Updating flow failed.",
+                "flowLoad": "Loading flow failed.",
+                "flowPublish": "Publishing flow failed.",
+                "flowUnpublish": "Unpublishing flow failed.",
+                "flowIntegrationInstancesUpdate": "Updating integration instances failed.",
+                "flowRemove": "Deleting integration failed.",
+                "integrationLoad": "Loading integration failed.",
+                "integrationTestLoad": "Loading integration test failed.",
+                "integrationTestStart": "Starting integration test failed.",
+                "integrationTestStop": "Stopping integration test failed.",
+                "integrationTestDelete": "Deleting integration test failed.",
+                "accountAuthorize": "Authorizing account failed.",
+                "flowAccountsLoad": "Loading accounts failed.",
+                "flowVariablesExamplesLoad": "Loading variables examples failed."
+            },
+            "warnings": {
+                "standaloneConnector": "Warning: the component is currently not linked to any others. Although this configuration might technically be valid, it's likely that the setup is not fully complete."
+            },
+            "validationErrors": {
+                "missingAccount": "Not authenticated.",
+                "required": "Should have required property \"{{property}}\".",
+                "format": "Should match format \"{{format}}\".",
+                "invalid": "Input field \"{{invalidProperty}}\" contains invalid variable.",
+                "additionalProperties": "Should not have additional properties.",
+                "pattern": "Should match pattern \"{{pattern}}\".",
+                "oneOf": "Should exclusively match one schema.",
+                "invalidVariable": "Loading variables failed."
+            },
+            "dialogTrigger": {
+                "title": "Choose trigger connector",
+                "buttonClose": "Close",
+                "search": "Search",
+                "featured": "Featured",
+                "noneFound": "No triggers found."
+            },
+            "dialogStep": {
+                "title": "Add Step",
+                "buttonClose": "Close",
+                "search": "Search",
+                "featured": "Featured",
+                "noneFound": "No steps found.",
+                "showMore": "Show more"
+            },
+            "dialogExportFlow": {
+                "saveFormatSVG": "(Right-click, and use \"Save As\" to save the diagram in SVG format)",
+                "saveFormatPNG": "(Right-click, and use \"Save As\" to save the diagram in PNG format)"
+            },
+            "dialogRenameFlow": {
+                "title": "Rename flow",
+                "buttonCancel": "Cancel",
+                "buttonSubmit": "Rename",
+                "buttonSubmitPending": "Renaming …",
+                "placeholder": "Enter name …"
+            },
+            "dialogRemoveFlow": {
+                "title": "Delete flow {{flowName}}?",
+                "subtitle": "Deleted flows can not be restored.",
+                "buttonCancel": "Cancel",
+                "buttonSubmit": "Delete",
+                "buttonSubmitPending": "Deleting …"
+            },
+            "dialogChangeDescription": {
+                "title": "Change Description",
+                "buttonCancel": "Cancel",
+                "buttonSubmit": "Save",
+                "buttonSubmitPending": "Saving …",
+                "placeholder": "Enter description …"
+            },
+            "dialogFlowCustomFields": {
+                "title": "Edit Custom Fields",
+                "buttonCancel": "Close",
+                "buttonSubmit": "Update",
+                "buttonSubmitPending": "Updating …",
+                "failedToLoad": "Loading custom fields failed.",
+                "failedToUpdate": "Updating custom fields failed.",
+                "table": {
+                    "noRecordsFound": "No custom fields specified yet.",
+                    "keyColumnLabel": "Key",
+                    "valueColumnLabel": "Value",
+                    "buttonAdd": "Add custom field",
+                    "buttonRemove": "Remove",
+                    "buttonEdit": "Edit"
+                },
+                "form": {
+                    "titleCreate": "Create Custom Field",
+                    "titleUpdate": "Update Custom Field",
+                    "keyInputLabel": "Key",
+                    "keyInputPlaceholder": "Enter key",
+                    "valueInputLabel": "Value",
+                    "valueInputPlaceholder": "Enter value",
+                    "buttonCancel": "Close",
+                    "buttonUpdate": "Update",
+                    "buttonCreate": "Create",
+                    "buttonSubmitPending": "Updating …",
+                    "errors": {
+                        "missingKey": "Key is not specified.",
+                        "duplicateKey": "An entry with this key already exists."
+                    }
+                }
+            },
+            "dialogChangeImage": {
+                "title": "Change Image",
+                "buttonCancel": "Cancel",
+                "buttonSubmit": "Save",
+                "buttonSubmitPending": "Saving …",
+                "placeholder": "Enter Image URL"
+            },
+            "dialogTurnFlowIntoAutomation": {
+                "title": "Are you sure you want to turn this Integration into an Automation?",
+                "subtitle": "You will lose your Wizard configuration.",
+                "buttonSubmit": "Yes",
+                "buttonCancel": "No"
+            },
+            "dialogTurnFlowIntoIntegration": {
+                "title": "Are you sure you want to turn this Automation into an Integration?",
+                "buttonSubmit": "Yes",
+                "buttonCancel": "No"
+            },
+            "dialogSendAppEvent": {
+                "title": "Send App Event",
+                "eventNameLabel": "App Event name",
+                "eventNameTooltip": "Provide the event name. For example: contact-created",
+                "eventNamePlaceholder": "contact-created",
+                "eventDataLabel": "App Event data (JSON)",
+                "eventDataTooltip": "Provide the App Event data as a valid JSON document. For example: { \"first\": \"John\", \"last\": \"Doe\" }",
+                "eventDataPlaceholder": "{ \"first\": \"John\", \"last\": \"Doe\" }",
+                "buttonSubmit": "Send App Event",
+                "buttonSubmitPending": "Sending …",
+                "alertSuccess": "The event has been sent successfully.",
+                "alertError": "Sending the event failed.",
+                "buttonClose": "Close"
+            },
+            "dialogRenameComponent": {
+                "title": "Rename component",
+                "buttonCancel": "Cancel",
+                "buttonSubmit": "Rename",
+                "buttonSubmitPending": "Renaming …",
+                "placeholder": "Enter name …"
+            },
+            "dialogShareFlow": {
+                "title": "Share {{flowName}}",
+                "subtitle": "Share your flow either with individual people (identified by Email) or with groups of people (identified by Domain or Scope).",
+                "readonlyTooltip": "This sharing dialog is non-interactive for users who did not create the flow.",
+                "buttonCancel": "Close",
+                "buttonSubmit": "Update",
+                "shareTypePlaceholder": "Select sharing type",
+                "buttonRemove": "Remove",
+                "buttonSubmitPending": "Updating …"
+            },
+            "dialogPublishFlow": {
+                "title": "Publish Integration",
+                "timestamp": "Published {{timestamp}}.",
+                "inputShareWithAllUsers": {
+                    "label": "All users",
+                    "description": "Publish your integration template to individual people (identified by Email) or with groups of people (identified by Domain or Scope).",
+                    "inputTypePlaceholder": "Select type",
+                    "inputValuePlaceholder": "Enter value",
+                    "buttomRemove": "Remove"
+                },
+                "inputUpdateAllInstances": {
+                    "label": "Update all existing instances",
+                    "description": "By default, only the published integration template is updated. All the existing integrations that users configured stay untouched. Set this option to update all the configured integrations too.",
+                    "linkText": "Learn more.",
+                    "linkUrl": "https://kb.appmixer.com/appmixer-studio-features/publishing-integrations "
+                },
+                "inputInProgressData": {
+                    "label": "In-Progress Data",
+                    "description": "When updating existing integrations that are in progress, there might be data that are yet to be processed (scheduled data, data waiting in queues, ...). Select 'keep' if you want this data to be processed in the updated integration (default). Or select 'delete' if you want to remove the data (this can lead to data loss but it might be intended for e.g. long scheduled timeouts).",
+                    "buttonKeep": "Keep",
+                    "buttonDelete": "Delete"
+                },
+                "buttonClose": "Close",
+                "buttonPublish": "Publish",
+                "buttonPublishUpdate": "Publish Update",
+                "buttonUnpublish": "Unpublish",
+                "nonAdminUserTooltip": "Only admin users can update existing instances of published integrations."
+            },
+            "dialogTestIntegration": {
+                "buttonInsights": "Insights",
+                "buttonSendAppEvent": "Send App Event",
+                "buttonStart": "Start Test",
+                "buttonStop": "Stop Test",
+                "buttonDelete": "Delete Test",
+                "buttonEdit": "Edit Test",
+                "warningTestOutdated": "The current test is outdated.",
+                "warningTestInvalid": "The current test is invalid."
+            },
+            "dialogWizardBuilder": {
+                "title": "Wizard Builder",
+                "buttonClose": "Close",
+                "buttonPublish": "Publish",
+                "buttonAddField": "Add section",
+                "fieldLabelPlaceholder": "New field",
+                "buttonRemoveField": "Remove field",
+                "messageNoFieldsFound": "No fields found.",
+                "preview": {
+                    "title": "Live Preview",
+                    "description": "The preview is what the end-user will encounter upon opening the integration wizard. Error messages will appear every time a required field is left unset."
+                },
+                "tabs": {
+                    "options": "Options",
+                    "form": "Form"
+                },
+                "errors": {
+                    "hasInvalidFields": "Wizard Builder configuration is invalid.",
+                    "missingComponent": "Component not selected",
+                    "missingComponentInput": "Input not selected",
+                    "missingTextFormat": "Text format not selected",
+                    "missingTextValue": "Text value not specified",
+                    "missingCustomFieldPath": "Custom field path not specified",
+                    "missingAccountService": "Account field service not specified",
+                    "missingAccountComponents": "Account field components not specified"
+                },
+                "field": {
+                    "messageFieldNotEditable": "Field is not editable.",
+                    "messageNoFieldSelected": "No field selected.",
+                    "messageNoUsableComponents": "No usable components found.",
+                    "type": {
+                        "label": "Section type",
+                        "placeholder": "Select section type",
+                        "items": {
+                            "account": "Account",
+                            "input": "Inspector Field",
+                            "fieldset": "Inspector Fieldset",
+                            "custom": "Custom Field",
+                            "image": "Image",
+                            "text": "Text"
+                        }
+                    },
+                    "customLabel": {
+                        "label": "Custom label",
+                        "placeholder": "Enter a custom label …"
+                    },
+                    "customTooltip": {
+                        "label": "Custom tooltip",
+                        "placeholder": "Enter a custom tooltip …"
+                    },
+                    "account": {
+                        "service": {
+                            "label": "Service",
+                            "placeholder": "Select service"
+                        },
+                        "components": {
+                            "label": "Components",
+                            "placeholder": "Select components"
+                        }
+                    },
+                    "text": {
+                        "format": {
+                            "label": "Format",
+                            "placeholder": "Select format",
+                            "items": {
+                                "header": "Header",
+                                "subheader": "Subheader",
+                                "paragraph": "Paragraph"
+                            }
+                        },
+                        "value": {
+                            "label": "Text",
+                            "placeholder": "Enter text"
+                        }
+                    },
+                    "image": {
+                        "value": {
+                            "label": "Image URL",
+                            "placeholder": "Enter image URL"
+                        }
+                    },
+                    "component": {
+                        "label": "Component",
+                        "placeholder": "Select component",
+                        "searchPlaceholder": "Search …",
+                        "input": {
+                            "label": "Input",
+                            "placeholder": "Select input",
+                            "searchPlaceholder": "Search …"
+                        }
+                    },
+                    "customField": {
+                        "type": {
+                            "label": "Custom field type",
+                            "placeholder": "Select custom field type",
+                            "items": {
+                                "text": "Text",
+                                "number": "Number",
+                                "textarea": "Textarea",
+                                "toggle": "Toggle",
+                                "color": "Color",
+                                "dateTime": "Date-time",
+                                "select": "Select",
+                                "multiselect": "Multiselect",
+                                "selectButtonGroup": "Select Button Group"
+                            },
+                            "dateTime": {
+                                "showButtonNow": "Show button now"
+                            },
+                            "number": {
+                                "min": {
+                                    "label": "Min"
+                                },
+                                "max": {
+                                    "label": "Max"
+                                },
+                                "step": {
+                                    "label": "Step"
+                                }
+                            },
+                            "select": {
+                                "searchPlaceholder": {
+                                    "label": "Search placeholder",
+                                    "placeholder": "Enter a search placeholder"
+                                },
+                                "items": {
+                                    "label": "Items",
+                                    "placeholder": "Value",
+                                    "contentPlaceholder": "Content",
+                                    "buttonRemove": "Remove item",
+                                    "buttonAdd": "Add item"
+                                }
+                            },
+                            "selectButtonGroup": {
+                                "multi": {
+                                    "label": "Multiple"
+                                }
+                            },
+                            "toggle": {
+                                "binary": {
+                                    "label": "Binary"
+                                },
+                                "type": {
+                                    "label": "Type",
+                                    "placeholder": "Select type",
+                                    "items": {
+                                        "switch": "Switch",
+                                        "checkbox": "Checkbox"
+                                    }
+                                }
+                            }
+                        },
+                        "path": {
+                            "label": "Custom Field",
+                            "placeholder": "Enter custom field name or create new",
+                            "searchPlaceholder": "Search existing custom fields"
+                        },
+                        "placeholder": {
+                            "label": "Placeholder text",
+                            "placeholder": "Enter a placeholder text"
+                        }
+                    }
+                }
+            },
+            "header": {
+                "buttonClose": "Close",
+                "buttonStartFlow": "Start flow",
+                "buttonStopFlow": "Stop flow",
+                "buttonWizardBuilder": "Edit Wizard",
+                "buttonPublish": "Publish",
+                "buttonPublishUpdate": "Publish Update",
+                "buttonCreateTest": "Start Test",
+                "buttonEditTest": "Test",
+                "messageInvalidComponents": "{{componentsCount}} component is invalid.|{{componentsCount}} components are invalid.",
+                "messageAllComponentsValid": "All components are valid.",
+                "buttonOptions": "Options",
+                "sharedWith": {
+                    "sharedWithMe": "Flow is shared with me",
+                    "myFlowSharedWithOthers": "Flow is shared with others",
+                    "notShared": "Flow is private"
+                }
+            },
+            "validation": {
+                "buttonCollapse": "Collapse to Icons",
+                "buttonExpand": "Expand Panels"
+            },
+            "toolbar": {
+                "buttonUndo": "Undo",
+                "buttonRedo": "Redo",
+                "buttonZoomToFit": "Zoom to Fit",
+                "buttonZoomIn": "Zoom In",
+                "buttonZoomOut": "Zoom Out",
+                "buttonLogs": "View Logs",
+                "buttonIntegrationTestLogs": "View Test Logs"
+            },
+            "logs": {
+                "buttonExpand": "Expand",
+                "buttonCollapse": "Collapse",
+                "buttonClose": "Close",
+                "buttonReload": "Reload",
+                "buttonTrackingStart": "Start tracking",
+                "buttonTrackingStartDisabled": "Tracking is disabled when the flow is stopped.",
+                "buttonTrackingPause": "Pause tracking",
+                "buttonTrackingClear": "Clear logs",
+                "buttonTrackingFilter": "Filter logs",
+                "buttonLoadMore": "Load more",
+                "searchPlaceholder": "Search",
+                "searchTooltip": "Filter data by a provided query string, using a parser with a strict syntax. E.g.: portType:in, portType:out, severity:error, severity:info, …",
+                "log": {
+                    "title": "Log",
+                    "buttonClose": "Close",
+                    "labelStatus": "Status",
+                    "labelFlow": "Flow",
+                    "statusLog": "Logs",
+                    "statusSuccess": "Success",
+                    "statusError": "Error",
+                    "labelSource": "Source Component",
+                    "labelTarget": "Target Component",
+                    "labelPortName": "Port Name",
+                    "labelPortType": "Port Type",
+                    "labelTimestamp": "Timestamp",
+                    "labelCorrelationId": "Correlation ID",
+                    "labelError": "Error",
+                    "labelMessage": "Message",
+                    "labelInputMessages": "Input Messages",
+                    "portTypeOut": "Out",
+                    "portTypeIn": "In",
+                    "inputMessagesTooLarge": "Input messages could not be parsed because they were too large. Partial input is shown:",
+                    "retryingAutomatically": "Automatic retry scheduled",
+                    "retryingAutomaticallyDetail": "An automatic retry has been scheduled"
+                }
+            },
+            "stencil": {
+                "search": "Filter connectors",
+                "groups": {
+                    "utilities": "Utilities",
+                    "applications": "Applications",
+                    "custom": "Custom"
+                }
+            },
+            "paper": {
+                "tooltipElementCopy": "Copy",
+                "tooltipElementCut": "Cut",
+                "tooltipElementRemove": "Remove",
+                "tooltipAddStep": "Add Step",
+                "pasteFromClipboard": "Paste from clipboard"
+            },
+            "inspector": {
+                "buttonOptions": "Options",
+                "buttonRename": "Rename",
+                "buttonClose": "Close",
+                "action": {
+                    "label": "Action",
+                    "placeholder": "Select action",
+                    "searchPlaceholder": "Filter actions",
+                    "typeTrigger": "Trigger",
+                    "typeAction": "Action"
+                },
+                "account": {
+                    "label": "{{service}} account",
+                    "placeholder": "Select account",
+                    "searchPlaceholder": "Filter accounts",
+                    "buttonConnect": "Connect a new account",
+                    "buttonDisconnect": "Disconnect account",
+                    "buttonAuthenticate": "Connect account"
+                },
+                "field": {
+                    "magicWand": {
+                        "buttonAddTooltip": "Input the value directly into the field or add the field to Wizard using the magic wand.",
+                        "buttonRemoveTooltip": "Remove the field from Wizard.",
+                        "fieldTooltip": "This field has been added into the Wizard. To remove the field from the Wizard, toggle the \"magic wand\" button."
+                    },
+                    "clipboard": {
+                        "tooltip": "Copy to clipboard",
+                        "success": "Copied to clipboard",
+                        "failure": "Copy to clipboard failed"
+                    },
+                    "variablesPicker": {
+                        "tooltip": "Variables",
+                        "searchPlaceholder": "Filter variables",
+                        "messageNoVariables": "No variables found.",
+                        "tabVariablesConnectors": "Connectors",
+                        "tabVariablesGeneral": "General",
+                        "buttonVariablesReload": "Refresh variables"
+                    },
+                    "inlineEditor": {
+                        "dialogModifyVariable": {
+                            "title": "Modify variable",
+                            "buttonUpdate": "Update",
+                            "buttonClose": "Close",
+                            "errorModifiersLoad": "Loading modifiers failed.",
+                            "variableModifier": {
+                                "buttonRemoveScope": "Remove scope",
+                                "buttonRemoveInput": "Remove input",
+                                "buttonRemoveField": "Remove field",
+                                "buttonExtendField": "Extend field",
+                                "buttonAddModifier": "Add modifier",
+                                "searchPlaceholder": "Search …",
+                                "variablesPicker": {
+                                    "tooltip": "Variables",
+                                    "searchPlaceholder": "Filter variables",
+                                    "messageNoVariables": "No variables found.",
+                                    "tabVariablesConnectors": "Connectors",
+                                    "tabVariablesGeneral": "General",
+                                    "buttonVariablesReload": "Refresh variables"
+                                },
+                                "test": {
+                                    "title": "Test your modifier",
+                                    "buttonTest": "Test",
+                                    "testInputTitle": "Input",
+                                    "testInputPlaceholder": "Enter a valid variable value (a string, number, boolean or JSON).",
+                                    "testOutputTitle": "Output"
+                                }
+                            }
+                        }
+                    },
+                    "input": {
+                        "key-value": {
+                            "keyLabel": "Key",
+                            "valueLabel": "Value",
+                            "addLabel": "Add",
+                            "removeLabel": "Remove"
+                        },
+                        "toggle": {
+                            "true": "True",
+                            "false": "False",
+                            "undetermined": "Undetermined"
+                        },
+                        "select": {
+                            "placeholder": "Select",
+                            "searchPlaceholder": "Search …"
+                        },
+                        "multiselect": {
+                            "placeholder": "Select",
+                            "searchPlaceholder": "Search …"
+                        },
+                        "date-time": {
+                            "placeholder": "Select date …",
+                            "rangeFrom": "From",
+                            "rangeTo": "To"
+                        },
+                        "googlepicker": {
+                            "placeholder": "Choose a file …",
+                            "errorGooglePickerApi": "Loading Google API failed.",
+                            "errorGooglePickerAuth": "Loading authentication failed."
+                        },
+                        "onedrivepicker": {
+                            "placeholder": "Choose a file …",
+                            "errorOnedrivePickerSdk": "Loading Onedrive SDK failed.",
+                            "errorOnedrivePickerAuth": "Loading authentication failed."
+                        },
+                        "filepicker": {
+                            "placeholder": "Choose a file …",
+                            "upload": "Upload",
+                            "loadingFile": "Loading file …",
+                            "loadFileError": "Loading file failed.",
+                            "uploadFile": "Upload file",
+                            "uploadingFile": "Uploading file …",
+                            "uploadFileError": "Uploading file failed.",
+                            "browse": "Browse",
+                            "searchPlaceholder": "Search files",
+                            "loadFilesError": "Loading files failed.",
+                            "loadMoreFiles": "Load more ({{length}}/{{count}})",
+                            "noFilesFound": "No files found."
+                        }
+                    }
+                }
+            }
+        },
+        "flowManager": {
+            "header": {
+                "title": "Flows",
+                "buttonCreateFlow": "Create Flow",
+                "buttonCreateFlowPending": "Creating …"
+            },
+            "errors": {
+                "flowsLoad": "Loading flows failed.",
+                "flowsCountLoad": "Loading flows count failed.",
+                "flowThumbnailLoad": "Loading thumbnail failed.",
+                "flowRemove": "Deleting flow failed.",
+                "flowUpdate": "Updating flow failed.",
+                "flowRename": "Renaming flow failed.",
+                "flowStart": "Starting flow failed.",
+                "flowStop": "Stopping flow failed.",
+                "flowCreate": "Creating a new flow failed.",
+                "flowClone": "Cloning flow failed."
+            },
+            "alertNoResults": {
+                "searchTitle": "No flows found for \"{{keywords}}\".",
+                "searchSubtitle": "Please try again using different keywords.",
+                "searchButtonClear": "Clear Search",
+                "filterTitle": "No flows found.",
+                "filterSubtitle": "Please try again using different filters.",
+                "filterButtonClear": "Clear filters"
+            },
+            "alertCreateFlow": {
+                "title": "You haven't created any flows yet.",
+                "subtitle": "Create a new flow by clicking the button below:",
+                "buttonCreateFlow": "Create Flow"
+            },
+            "search": "Search",
+            "buttonLayoutList": "List view",
+            "buttonLayoutGrid": "Grid view",
+            "pagination": "{{range}} of {{total}}",
+            "labels": {
+                "stage": "Stage",
+                "name": "Name",
+                "sharedWith": "Sharing",
+                "createdAt": "Created",
+                "modifiedAt": "Modified",
+                "sortBy": "Sort by",
+                "filterBy": "Filter by"
+            },
+            "dialogRemoveFlow": {
+                "title": "Delete flow {{flowName}}?",
+                "subtitle": "Deleted flows can not be restored.",
+                "buttonCancel": "Cancel",
+                "buttonSubmit": "Delete",
+                "buttonSubmitPending": "Deleting …"
+            },
+            "dialogChangeDescription": {
+                "title": "Change Description",
+                "buttonCancel": "Cancel",
+                "buttonSubmit": "Save",
+                "buttonSubmitPending": "Saving …",
+                "placeholder": "Enter description …"
+            },
+            "dialogChangeImage": {
+                "title": "Change Image",
+                "buttonCancel": "Cancel",
+                "buttonSubmit": "Save",
+                "buttonSubmitPending": "Saving …",
+                "placeholder": "Enter Image URL"
+            },
+            "dialogRenameFlow": {
+                "title": "Rename flow",
+                "buttonCancel": "Cancel",
+                "buttonSubmit": "Rename",
+                "buttonSubmitPending": "Renaming …",
+                "placeholder": "Enter name …"
+            },
+            "dialogShareFlow": {
+                "title": "Share {{flowName}}",
+                "subtitle": "Share your flow either with individual people (identified by Email) or with groups of people (identified by Domain or Scope).",
+                "readonlyTooltip": "This sharing dialog is non-interactive for users who did not create the flow.",
+                "buttonCancel": "Close",
+                "buttonSubmit": "Update",
+                "shareTypePlaceholder": "Select sharing type",
+                "buttonRemove": "Remove",
+                "buttonSubmitPending": "Updating …"
+            },
+            "flow": {
+                "buttonOptions": "Options",
+                "buttonRemoveCancel": "Cancel",
+                "buttonRemoveSubmit": "Delete",
+                "stage": {
+                    "flowIsRunning": "Running",
+                    "flowIsStopped": "Stopped"
+                },
+                "sharedWith": {
+                    "sharedWithMe": "Shared with me",
+                    "myFlowSharedWithOthers": "Shared with others",
+                    "notShared": "Private"
+                }
+            }
+        },
+        "integrationsManager": {
+            "header": {
+                "title": "Integrations",
+                "buttonCreateFlow": "Create Integration",
+                "buttonCreateFlowPending": "Creating …"
+            },
+            "errors": {
+                "flowsLoad": "Loading integrations failed.",
+                "flowsCountLoad": "Loading integrations count failed.",
+                "flowThumbnailLoad": "Loading thumbnail failed.",
+                "flowRemove": "Deleting integration failed.",
+                "flowUpdate": "Updating integration failed.",
+                "flowRename": "Renaming integration failed.",
+                "flowStart": "Starting integration failed.",
+                "flowStop": "Stopping integration failed.",
+                "flowCreate": "Creating a new integration failed.",
+                "flowClone": "Cloning integration failed.",
+                "flowIntegrationTestLoad": "Loading test failed."
+            },
+            "alertNoResults": {
+                "searchTitle": "No integrations found for \"{{keywords}}\".",
+                "searchSubtitle": "Please try again using different keywords.",
+                "searchButtonClear": "Clear Search",
+                "filterTitle": "No integrations found.",
+                "filterSubtitle": "Please try again using different filters.",
+                "filterButtonClear": "Clear filters"
+            },
+            "alertCreateFlow": {
+                "title": "You haven't created any integrations yet.",
+                "subtitle": "Create a new integration by clicking the button below:",
+                "buttonCreateFlow": "Create Integration"
+            },
+            "search": "Search",
+            "buttonLayoutList": "List view",
+            "buttonLayoutGrid": "Grid view",
+            "pagination": "{{range}} of {{total}}",
+            "labels": {
+                "stage": "Stage",
+                "name": "Name",
+                "sharedWith": "Sharing",
+                "createdAt": "Created",
+                "modifiedAt": "Modified",
+                "sortBy": "Sort by",
+                "filterBy": "Filter by"
+            },
+            "dialogRemoveFlow": {
+                "title": "Delete integration {{flowName}}?",
+                "subtitle": "Are you sure you want to delete your integration? All instances of this integration will be deleted too.",
+                "buttonCancel": "Cancel",
+                "buttonSubmit": "Delete",
+                "buttonSubmitPending": "Deleting …"
+            },
+            "dialogChangeDescription": {
+                "title": "Change Description",
+                "buttonCancel": "Cancel",
+                "buttonSubmit": "Save",
+                "buttonSubmitPending": "Saving …",
+                "placeholder": "Enter description …"
+            },
+            "dialogChangeImage": {
+                "title": "Change Image",
+                "buttonCancel": "Cancel",
+                "buttonSubmit": "Save",
+                "buttonSubmitPending": "Saving …",
+                "placeholder": "Enter Image URL"
+            },
+            "dialogRenameFlow": {
+                "title": "Rename integration",
+                "buttonCancel": "Cancel",
+                "buttonSubmit": "Rename",
+                "buttonSubmitPending": "Renaming …",
+                "placeholder": "Enter name …"
+            },
+            "dialogShareFlow": {
+                "title": "Share {{flowName}}",
+                "subtitle": "Share your flow either with individual people (identified by Email) or with groups of people (identified by Domain or Scope).",
+                "readonlyTooltip": "This sharing dialog is non-interactive for users who did not create the flow.",
+                "buttonCancel": "Close",
+                "buttonSubmit": "Update",
+                "shareTypePlaceholder": "Select sharing type",
+                "buttonRemove": "Remove",
+                "buttonSubmitPending": "Updating …"
+            },
+            "flow": {
+                "buttonOptions": "Options",
+                "buttonRemoveCancel": "Cancel",
+                "buttonRemoveSubmit": "Delete",
+                "sharedWith": {
+                    "sharedWithMe": "Shared with me",
+                    "myFlowSharedWithOthers": "Shared with others",
+                    "notShared": "Private"
+                },
+                "test": {
+                    "statusMissing": "Test not active.",
+                    "statusRunning": "Test is running.",
+                    "statusStopped": "Test is stopped.",
+                    "buttonStart": "Start Test",
+                    "buttonStop": "Stop Test",
+                    "buttonInsights": "Insights",
+                    "buttonEdit": "Edit Test",
+                    "buttonDelete": "Delete Test"
+                }
+            }
+        },
+        "accounts": {
+            "search": "Filter …",
+            "errors": {
+                "accountsLoad": "Loading accounts failed.",
+                "manifestsLoad": "Loading manifests failed.",
+                "accountRename": "Renaming account failed.",
+                "accountUsageLoad": "Loading usage failed.",
+                "accountTest": "Testing account failed.",
+                "accountRevoke": "Revoking account failed."
+            },
+            "header": {
+                "title": "Accounts",
+                "buttonTestAll": "Test all",
+                "buttonTestAllPending": "Testing …"
+            },
+            "alertNoResults": {
+                "filterTitle": "No accounts found.",
+                "searchTitle": "No accounts found for \"{{keywords}}\".",
+                "searchSubtitle": "Please try again using different keywords.",
+                "searchButtonClear": "Clear Search"
+            },
+            "labels": {
+                "name": "Name",
+                "service": "Service",
+                "usage": "Usage",
+                "status": "Status"
+            },
+            "account": {
+                "buttonRename": "Rename",
+                "buttonTest": "Test",
+                "buttonRevoke": "Revoke",
+                "usageNone": "Not used in any flows.",
+                "usageInFlows": "Used in {{flowsCount}} flow.|Used in {{flowsCount}} flows.",
+                "testResultPending": "Testing …",
+                "testResultUnknown": "Not tested",
+                "testResultSuccess": "Tested",
+                "testResultError": "Failed"
+            },
+            "dialogRename": {
+                "title": "Rename account",
+                "buttonCancel": "Cancel",
+                "buttonSubmit": "Rename",
+                "buttonSubmitPending": "Renaming …",
+                "placeholder": "Enter name …"
+            }
+        },
+        "storage": {
+            "errors": {
+                "storesLoad": "Loading stores failed.",
+                "storeCreate": "Creating a new store failed.",
+                "storeDelete": "Deleting store failed.",
+                "storeRename": "Renaming store failed.",
+                "storeRecordsCountLoad": "Loading store records count failed.",
+                "storeRecordsLoad": "Loading store records failed.",
+                "storeRecordsRemove": "Deleting store records failed.",
+                "storeRecordCreate": "Creating store record failed.",
+                "storeRecordUpdate": "Updating store record failed.",
+                "storeDuplicateKey": "Key exists already."
+            },
+            "dialogRenameStore": {
+                "title": "Rename store",
+                "buttonCancel": "Cancel",
+                "buttonSubmit": "Rename",
+                "buttonSubmitPending": "Renaming …",
+                "placeholder": "Enter name …",
+                "nameIsTooShort": "The new name is too short.",
+                "nameIsTaken": "Store with the given name already exists."
+            },
+            "dialogRemoveStore": {
+                "title": "Delete store {{storeName}}?",
+                "subtitle": "Deleted stores can not be restored.",
+                "buttonCancel": "Cancel",
+                "buttonSubmit": "Delete",
+                "buttonSubmitPending": "Deleting …"
+            },
+            "header": {
+                "title": "Storage",
+                "buttonCreateStore": "Create store",
+                "buttonCreateStorePending": "Creating …"
+            },
+            "stores": {
+                "search": "Filter stores …",
+                "messageNoStoresFound": "No stores found."
+            },
+            "store": {
+                "pagination": "{{range}} of {{total}}",
+                "buttonRename": "Rename store",
+                "buttonRenameDisabled": "Store cannot be renamed.",
+                "buttonRemove": "Delete store",
+                "buttonRemoveDisabled": "Store cannot be deleted.",
+                "buttonCreateRecord": "Add record",
+                "searchRecords": "Search records …",
+                "noRecordsFound": "No records found.",
+                "buttonEditRecord": "Edit",
+                "buttonRemoveRecord": "Remove",
+                "tableHeaderKey": "Key",
+                "tableHeaderValue": "Value",
+                "dialogCreateRecord": {
+                    "title": "Create record",
+                    "inputKeyLabel": "Key",
+                    "inputKeyPlaceholder": "Enter key …",
+                    "inputValueLabel": "Value",
+                    "inputValuePlaceholder": "Enter value …",
+                    "buttonCancel": "Cancel",
+                    "buttonSubmit": "Create",
+                    "buttonSubmitPending": "Creating …"
+                },
+                "dialogUpdateRecord": {
+                    "title": "Update record",
+                    "inputKeyLabel": "Key",
+                    "inputKeyPlaceholder": "Enter key …",
+                    "inputValueLabel": "Value",
+                    "inputValuePlaceholder": "Enter value …",
+                    "updatedAtLabel": "Updated at",
+                    "createdAtLabel": "Created at",
+                    "buttonCancel": "Close",
+                    "buttonSubmit": "Update",
+                    "buttonSubmitPending": "Updating …"
+                }
+            }
+        },
+        "insightsLogs": {
+            "buttonFilter": "Filter",
+            "buttonReload": "Reload",
+            "buttonTrackingStart": "Start tracking",
+            "buttonTrackingPause": "Pause tracking",
+            "buttonTrackingClear": "Clear logs",
+            "buttonLoadMoreLogs": "Load more",
+            "buttonConsistentScale": "Use consistent y-axix scale",
+            "buttonCalendarInterval": "Use calendar interval",
+            "alertNoResults": "No logs found.",
+            "errors": {
+                "aggregationLimitExceeded": "The aggregation has surpassed the 10,000 record limit. Please refine your search with additional filters.",
+                "userLoad": "Loading user failed",
+                "manifestsLoad": "Loading manifests failed",
+                "flowsLoad": "Loading flows failed.",
+                "logsLoad": "Loading logs failed."
+            },
+            "query": {
+                "labelSearch": "Search",
+                "labelTimeRange": "Time range",
+                "labelInterval": "Interval",
+                "labelConnectors": "Flows",
+                "inputSearch": {
+                    "placeholder": "",
+                    "queryStringTooltip": "Filter data by a provided query string, using a parser with a strict syntax. E.g.: portType:in, portType:out, severity:error, severity:info, …"
+                },
+                "inputTimeRange": {
+                    "placeholder": "Enter time range …",
+                    "dialog": {
+                        "title": "Time range",
+                        "buttonCancel": "Close",
+                        "buttonSubmit": "Submit",
+                        "shortcuts": "Shortcuts",
+                        "lowerBoundLabel": "From",
+                        "upperBoundLabel": "To",
+                        "absoluteDatePlaceholder": "Select date",
+                        "relativeDatePlaceholder": "Enter amount",
+                        "helperTextBefore": "Before"
+                    }
+                },
+                "inputInterval": {
+                    "placeholder": "Select interval"
+                },
+                "inputConnectors": {
+                    "placeholder": "Select flows",
+                    "dialog": {
+                        "title": "Flows",
+                        "buttonToggleSelected": "Show selected",
+                        "buttonCancel": "Close",
+                        "buttonSubmit": "Submit",
+                        "searchPlaceholder": "Search",
+                        "failedToLoadFlows": "Loading flows failed.",
+                        "failedToLoadFlowsCount": "Loading flows count failed.",
+                        "failedToLoadManifests": "Loading manifests failed."
+                    }
+                }
+            },
+            "log": {
+                "title": "Log",
+                "buttonClose": "Close",
+                "labelStatus": "Status",
+                "labelFlow": "Flow",
+                "statusLog": "Logs",
+                "statusSuccess": "Success",
+                "statusError": "Error",
+                "labelSource": "Source Component",
+                "labelTarget": "Target Component",
+                "labelPortName": "Port Name",
+                "labelPortType": "Port Type",
+                "labelTimestamp": "Timestamp",
+                "labelCorrelationId": "Correlation ID",
+                "labelError": "Error",
+                "labelMessage": "Message",
+                "labelInputMessages": "Input Messages",
+                "portTypeOut": "Out",
+                "portTypeIn": "In",
+                "inputMessagesTooLarge": "Input messages could not be parsed because they were too large. Partial input is shown:"
+            }
+        },
+        "insightsDashboard": {
+            "messageNoCharts": "No charts found.",
+            "errors": {
+                "chartsLoad": "Loading charts failed."
+            },
+            "chart": {
+                "refresh": "Refresh",
+                "clone": "Clone",
+                "remove": "Remove",
+                "edit": "Edit"
+            }
+        },
+        "insightsChartEditor": {
+            "validation": {
+                "nameTooShort": "Name is too short ({{nameLength}}/{{minNameLength}}).",
+                "flowsNotSelected": "Flows not selected.",
+                "queryRangeInvalid": "Time range is invalid.",
+                "intervalInvalid": "Interval is required.",
+                "missingTraceAggField": "Field is required."
+            },
+            "header": {
+                "typeBar": "Bar",
+                "typeHistogram": "Histogram",
+                "typeMetric": "Metric",
+                "typePie": "Pie",
+                "buttonSource": "Source",
+                "buttonOptions": "Options",
+                "buttonTraces": "Traces ({{count}})",
+                "buttonReload": "Reload",
+                "buttonTrackingStart": "Start tracking",
+                "buttonTrackingPause": "Pause tracking",
+                "buttonTrackingClear": "Clear data",
+                "buttonClose": "Close",
+                "buttonSave": "Save",
+                "buttonUpdate": "Update",
+                "buttonRemove": "Delete"
+            },
+            "source": {
+                "autoInterval": "Automatic",
+                "flows": {
+                    "label": "Flows",
+                    "tooltip": "Filter data by the selected flows.",
+                    "placeholder": "Select flows",
+                    "dialog": {
+                        "title": "Flows",
+                        "buttonToggleSelected": "Show selected",
+                        "buttonCancel": "Close",
+                        "buttonSubmit": "Submit",
+                        "searchPlaceholder": "Search",
+                        "failedToLoadFlows": "Loading flows failed.",
+                        "failedToLoadFlowsCount": "Loading flows count failed.",
+                        "failedToLoadManifests": "Loading manifests failed."
+                    }
+                },
+                "timeRange": {
+                    "label": "Period",
+                    "tooltip": "Filter data by the given time period.",
+                    "placeholder": "Enter time range …",
+                    "dialog": {
+                        "title": "Period",
+                        "buttonCancel": "Close",
+                        "buttonSubmit": "Submit",
+                        "shortcuts": "Shortcuts",
+                        "lowerBoundLabel": "From",
+                        "upperBoundLabel": "To",
+                        "absoluteDatePlaceholder": "Select date",
+                        "relativeDatePlaceholder": "Enter amount",
+                        "helperTextBefore": "Before"
+                    }
+                },
+                "filter": {
+                    "label": "Query String",
+                    "tooltip": "Filter data by a provided query string, using a parser with a strict syntax. E.g.: portType:in, portType:out, severity:error, severity:info, …",
+                    "placeholder": "msg:*"
+                },
+                "minCount": {
+                    "label": "Minimal Count",
+                    "placeholder": "Filter by min. count"
+                },
+                "intervalUnits": {
+                    "label": "Interval",
+                    "tooltip": "Distribute results by calendar interval.",
+                    "placeholder": "Set interval …"
+                },
+                "intervalBuckets": {
+                    "label": "Buckets (approx.)",
+                    "tooltip": "Adjust the automatic interval by approx. number of buckets.",
+                    "placeholder": "Set buckets …"
+                }
+            },
+            "options": {
+                "showLegend": "Show legend",
+                "showGridX": "Show grid X",
+                "showGridY": "Show grid Y",
+                "showTickLabelsX": "Show tick labels X",
+                "showTickLabelsY": "Show tick labels Y",
+                "markerSize": "Marker size",
+                "name": {
+                    "label": "Name",
+                    "placeholder": "Enter name …"
+                },
+                "type": {
+                    "label": "Type",
+                    "placeholder": "Select type",
+                    "items": {
+                        "bar": "Bar",
+                        "line": "Line",
+                        "area": "Area",
+                        "scatter": "Scatter"
+                    }
+                },
+                "barMode": {
+                    "label": "Bar mode",
+                    "placeholder": "Select bar mode",
+                    "items": {
+                        "group": "Group",
+                        "stack": "Stack",
+                        "overlay": "Overlay",
+                        "relative": "Relative"
+                    }
+                },
+                "barGap": {
+                    "label": "Bar gap",
+                    "placeholder": "Set bar gap"
+                },
+                "barGroupGap": {
+                    "label": "Group gap",
+                    "placeholder": "Set group gap"
+                },
+                "lineShape": {
+                    "label": "Line shape",
+                    "placeholder": "Set line shape",
+                    "items": {
+                        "linear": "Linear",
+                        "spline": "Spline",
+                        "hv": "H-V",
+                        "vh": "V-H",
+                        "hvh": "H-V-H",
+                        "vhv": "V-H-V"
+                    }
+                },
+                "lineDash": {
+                    "label": "Line dash",
+                    "placeholder": "Set line dash",
+                    "items": {
+                        "solid": "Solid",
+                        "dot": "Dot",
+                        "dashDot": "Dash-Dot"
+                    }
+                },
+                "lineWidth": {
+                    "label": "Line width",
+                    "placeholder": "Set line width"
+                },
+                "label": {
+                    "label": "Label",
+                    "placeholder": "Enter trace label"
+                },
+                "opacity": {
+                    "label": "Opacity",
+                    "placeholder": "Set opacity"
+                },
+                "areaFillType": {
+                    "label": "Fill type",
+                    "items": {
+                        "toZeroY": "to-zero-y",
+                        "toNextY": "to-next-y",
+                        "toSelf": "to-self"
+                    }
+                }
+            },
+            "traces": {
+                "traceTypeToDefault": "Default",
+                "unnamedTraceLabel": "Unnamed trace",
+                "messageNoTracesTitle": "Create your first Trace",
+                "messageNoTracesSubtitle": "Trace is a collection of data and the specifications of which we want that data plotted.",
+                "messageNoTracesButtonCreateTrace": "Create Trace",
+                "messageNoResultsTitle": "No results found for \"{{searchIndex}}\"",
+                "messageNoResultsSubtitle": "Please try again using different keywords.",
+                "messageNoResultsButtonClearSearch": "Clear Search",
+                "searchPlaceholder": "Filter",
+                "buttonAddTrace": "Create Trace",
+                "buttonHideTrace": "Hide",
+                "buttonShowTrace": "Show",
+                "buttonRemoveTrace": "Remove",
+                "tabs": {
+                    "source": "Source",
+                    "data": "Data",
+                    "options": "Options"
+                },
+                "inputAgg": {
+                    "label": "Aggregation",
+                    "placeholder": "Select aggregation …",
+                    "itemToDeselect": "None"
+                },
+                "inputAggField": {
+                    "label": "Field",
+                    "noItemsFound": "The selected flow has no fields to aggregate.",
+                    "placeholder": "Select field …",
+                    "itemToDeselect": "None"
+                },
+                "inputFilter": {
+                    "label": "Query String (Optional)",
+                    "tooltip": "Filter data by a provided query string, using a parser with a strict syntax. E.g.: portType:in, portType:out, severity:error, severity:info, …",
+                    "placeholder": "msg:*"
+                },
+                "inputConnectors": {
+                    "label": "Flows",
+                    "tooltip": "Filter data by the selected flows.",
+                    "placeholder": "Select flows",
+                    "dialog": {
+                        "title": "Flows",
+                        "buttonToggleSelected": "Show selected",
+                        "buttonCancel": "Close",
+                        "buttonSubmit": "Submit",
+                        "searchPlaceholder": "Search",
+                        "failedToLoadFlows": "Loading flows failed.",
+                        "failedToLoadFlowsCount": "Loading flows count failed.",
+                        "failedToLoadManifests": "Loading manifests failed."
+                    }
+                }
+            },
+            "preview": {
+                "messageClearedData": "Clearing data prior to {{date}} ({{fromNow}}).",
+                "messageInvalidChart": "Your chart configuration is invalid."
+            }
+        }
+    }
+}

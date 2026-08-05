@@ -1,0 +1,96 @@
+{
+    "name": "appmixer.yoursaas.customers.CreateCustomer",
+    "author": "Petr Olivka <petr@appmixer.com>",
+    "description": "Creates a new customer in YourSaaS.",
+    "private": false,
+    "auth": {
+        "service": "appmixer:yoursaas"
+    },
+    "inPorts": [
+        {
+            "name": "in",
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "example": "John Doe"
+                    },
+                    "email": {
+                        "type": "string",
+                        "format": "email",
+                        "example": "john.doe@example.com"
+                    },
+                    "avatar": {
+                        "type": "string",
+                        "example": "https://example.com/avatars/john.png"
+                    }
+                },
+                "required": [
+                    "name",
+                    "email"
+                ]
+            },
+            "inspector": {
+                "inputs": {
+                    "name": {
+                        "type": "text",
+                        "group": "customer",
+                        "label": "Name",
+                        "index": 1
+                    },
+                    "email": {
+                        "type": "email",
+                        "group": "customer",
+                        "label": "Email",
+                        "index": 2
+                    },
+                    "avatar": {
+                        "type": "text",
+                        "group": "customer",
+                        "label": "Avatar URL",
+                        "index": 3
+                    }
+                },
+                "groups": {
+                    "customer": {
+                        "label": "Customer Details",
+                        "index": 1
+                    }
+                }
+            }
+        }
+    ],
+    "outPorts": [
+        {
+            "name": "customer",
+            "options": [
+                {
+                    "label": "id",
+                    "value": "id"
+                },
+                {
+                    "label": "name",
+                    "value": "name"
+                },
+                {
+                    "label": "email",
+                    "value": "email"
+                },
+                {
+                    "label": "avatar",
+                    "value": "avatar"
+                },
+                {
+                    "label": "createdAt",
+                    "value": "createdAt"
+                },
+                {
+                    "label": "updatedAt",
+                    "value": "updatedAt"
+                }
+            ]
+        }
+    ],
+    "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWNpcmNsZS1xdWVzdGlvbi1tYXJrLWljb24gbHVjaWRlLWNpcmNsZS1xdWVzdGlvbi1tYXJrIj48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMCIvPjxwYXRoIGQ9Ik05LjA5IDlhMyAzIDAgMCAxIDUuODMgMWMwIDItMyAzLTMgMyIvPjxwYXRoIGQ9Ik0xMiAxN2guMDEiLz48L3N2Zz4="
+}
